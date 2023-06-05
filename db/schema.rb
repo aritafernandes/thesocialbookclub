@@ -10,9 +10,65 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_05_133937) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_05_141102) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookclub_members", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "bookclub_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bookclub_id"], name: "index_bookclub_members_on_bookclub_id"
+    t.index ["user_id"], name: "index_bookclub_members_on_user_id"
+  end
+
+  create_table "bookclubs", force: :cascade do |t|
+    t.string "name"
+    t.string "genre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "author"
+    t.integer "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "meeting_guests", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "meeting_id", null: false
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meeting_id"], name: "index_meeting_guests_on_meeting_id"
+    t.index ["user_id"], name: "index_meeting_guests_on_user_id"
+  end
+
+  create_table "meetings", force: :cascade do |t|
+    t.string "book_title"
+    t.string "location"
+    t.string "video_link"
+    t.datetime "date_time"
+    t.bigint "bookclub_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bookclub_id"], name: "index_meetings_on_bookclub_id"
+  end
+
+  create_table "my_books", force: :cascade do |t|
+    t.integer "status"
+    t.bigint "user_id", null: false
+    t.bigint "book_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_my_books_on_book_id"
+    t.index ["user_id"], name: "index_my_books_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +82,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_133937) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookclub_members", "bookclubs"
+  add_foreign_key "bookclub_members", "users"
+  add_foreign_key "meeting_guests", "meetings"
+  add_foreign_key "meeting_guests", "users"
+  add_foreign_key "meetings", "bookclubs"
+  add_foreign_key "my_books", "books"
+  add_foreign_key "my_books", "users"
 end
