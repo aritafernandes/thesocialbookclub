@@ -1,5 +1,6 @@
 class BookclubsController < ApplicationController
   before_action :set_bookclub, only: %i[show destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @bookclubs = Bookclub.all
