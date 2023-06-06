@@ -1,30 +1,37 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dhvsyhahj/image/upload/v1685650176/banner_cover.jpg');">
-  <div class="container">
-    <div class="row">
-      <div class="col6 mt-5 d-flex flex-column text-center">
-        <h1><strong>Read a Book Together</strong></h1>
-        <p>Start or join a Bookclub. Schedule virtual and in-person meetings.</p>
+   <div class="container">
+      <div class="row">
+         <div class="col6 mt-5 d-flex flex-column text-center">
+            <h1><strong>Read a Book Together</strong></h1>
+            <p>Start or join a Bookclub. Schedule virtual and in-person meetings.</p>
+            <div>
+               <%= link_to "Create Bookclub", new_bookclub_path, class: "button" %>
+            </div>
+         </div>
       </div>
-    </div>
-  </div>
+   </div>
 </div>
-
 <div class="container mt-5">
-   <div class="cards">
-      <% @bookclubs.each do |bookclub| %>
-      <div class="card mt-1 shadow p-4">
-        <div class="d-flex flex-column align-items-center h-100">
-          <% if bookclub.photo.attached?%>
-            <%= cl_image_tag book.photo.key, height: 200, class: "shadow mb-3" %>
-            <p class="card-title ">
-             <strong><%= bookclub.name %></strong>
-            </p>
-          <% end %>
-            <div class="d-flex justify-content-around">
-               <%= link_to "Join", bookclub_path(bookclub), class: "button btn btn-light mb-3 m-2" %>
+   <div class="cards-home">
+      <div class="row">
+        <% @bookclubs.each do |bookclub| %>
+        <div class=" col card mt-1 shadow p-4 m-4">
+            <div class="d-flex flex-column align-items-center h-100">
+              <% if bookclub.photo.attached?%>
+              <%= cl_image_tag book.photo.key, height: 200 %>
+              <p class="card-title ">
+                  <strong><%= bookclub.name %></strong>
+              </p>
+              <% end %>
+              <div class="d-flex justify-content-around">
+                  <%= link_to "Join", bookclub_path(bookclub), class: "button" %>
+              </div>
             </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+        <% end %>
+        </div>
+        <div class="d-flex justify-content-center">
+            <%= link_to "Browse all", bookclubs_path, class: "button-secondary" %>
+        </div>
+   </div>
 </div>
