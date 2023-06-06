@@ -1,23 +1,15 @@
-<div class="container justify-content-start mt-4 ">
-  <%#= link_to books_path do %>
-    <i class="fa-solid fa-arrow-left-long fa-2xl" style="color: #333"></i>
-  <%# end %>
+
+<div class="text-center pt-5">
+   <h2><strong>Start Your Club<strong></h2>
 </div>
-<div class="container">
-   <div class="row">
-      <div class="text-center pt-5">
-         <h2><strong>Add bookclub<strong></h2>
+<div class="w-60 my-5 d-flex justify-content-center">
+   <div class="card p-4">
+      <%= simple_form_for(@bookclub) do |f| %>
+      <%= f.input :name, placeholder: 'Club Name' %>
+      <%= f.input :genre, collection: ['Art', 'Classics', 'Fiction', 'Memoir', 'Biography', 'Comics', 'Graphic Novels','Music', 'Romance', 'Thriller', 'Historical Fiction', 'Mystery', 'Science', 'History', 'Science Fiction', 'Fantasy', 'Horror', 'Poetry' ] %>
+      <div class="d-flex justify-content-around">
+         <%= f.submit "Start Now", class: "button btn btn-light"%>
       </div>
-      <div class="w-60 my-5 d-flex justify-content-center">
-         <div class="card p-4">
-            <%= simple_form_for(@bookclub) do |f| %>
-            <%= f.input :name %>
-            <%= f.input :genre %>
-            <div class="d-flex justify-content-around">
-               <%= f.submit "Add bookclub", class: "button btn btn-light"%>
-            </div>
-            <% end %>
-         </div>
-      </div>
+      <% end %>
    </div>
 </div>
