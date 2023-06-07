@@ -3,12 +3,22 @@
   grid: 1fr 1fr 1fr;
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-text {
+  min-height: 25vh;
+}
+
 .cards {
-  background-color: #F1EEE3;
+  background-color: #f1eee3;
 }
 
 .even-color {
-  background-color: #FDFBF7;
+  background-color: #fdfbf7;
 }
 
 .odd-color {
