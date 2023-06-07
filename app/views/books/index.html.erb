@@ -1,0 +1,22 @@
+<h1>List of books</h1>
+<div class="container mt-5">
+  <div class="row">
+    <div class="cards col-8 mx-auto">
+      <% @books.each_with_index do |book, index| %>
+        <% color = index.even? ? "even-color" : "odd-color"%>
+        <div class="card p-5 <%= color %>">
+          <%= book.title %>
+          <div class="pt-2">
+            <%= book.author %>
+          </div>
+          <div class="pt-2">
+            <%= book.year %>
+          </div>
+          <div class="pt-4">
+            <%= book.description %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
