@@ -1,17 +1,17 @@
 
-<div class="text-center pt-5">
-   <h2><strong>Start Your Club<strong></h2>
-</div>
 <div class="w-60 my-5 d-flex justify-content-center">
-   <div class="card p-4">
-      <%= simple_form_for(@bookclub) do |f| %>
+  <div class="cards p-4">
+    <div class="text-center mb-4">
+      <h2><strong>Start Your Club<strong></h2>
+    </div>
+    <%= simple_form_for(@bookclub) do |f| %>
       <%= f.input :name, label: "Club Name" %>
       <%= f.input :description %>
       <%= f.input :genre,  collection: ['Art', 'Classics', 'Fiction', 'Memoir', 'Biography', 'Comics', 'Graphic Novels','Music', 'Romance', 'Thriller', 'Historical Fiction', 'Mystery', 'Science', 'History', 'Science Fiction', 'Fantasy', 'Horror', 'Poetry' ] %>
       <%= f.input :photo, as: :file %>
       <div class="d-flex justify-content-around">
-         <%= f.submit "Start Now", class: "button btn btn-light"%>
+        <%= f.submit "Start Now", class: "button btn btn-light"%>
       </div>
-      <% end %>
-   </div>
+    <% end %>
+  </div>
 </div>
