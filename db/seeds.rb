@@ -8,6 +8,12 @@
 
 require "json"
 require "open-uri"
+puts "Bookclub_members"
+puts "---------------------------"
+BookclubMember.destroy_all
+puts "Destroying all meetings"
+puts "---------------------------"
+Meeting.destroy_all
 puts "Destroying all books"
 puts "---------------------------"
 Book.destroy_all
@@ -25,14 +31,17 @@ authors.each do |author|
   puts "fetch na api"
   puts "---------------------------"
   books["items"].each do |book|
+
   next if book["volumeInfo"]["authors"].nil?
+
   next if book["volumeInfo"]["imageLinks"].nil?
+
   title = book["volumeInfo"]["title"]
   author = book["volumeInfo"]["authors"][0]
   description = book["volumeInfo"]["description"]
   image = book["volumeInfo"]["imageLinks"]["thumbnail"]
   year = book["volumeInfo"]["publishedDate"].first(4)
-  Book.create!(title: title, author: author, description: description, image_link:image,year: year)
+  Book.create!(title: title, author: author, description: description, image_link:image, year: year)
 
   puts "created book"
 
