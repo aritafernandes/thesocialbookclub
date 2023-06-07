@@ -15,6 +15,7 @@ class BookclubsController < ApplicationController
 
   def create
     @bookclub = Bookclub.new(bookclub_params)
+
     if @bookclub.save
       redirect_to bookclubs_path
     else
@@ -34,7 +35,7 @@ class BookclubsController < ApplicationController
   end
 
   def bookclub_params
-    params.require(:bookclub).permit(:name, :genre)
+    params.require(:bookclub).permit(:name, :genre, :description, :photo)
   end
 
 end
