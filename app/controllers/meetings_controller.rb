@@ -1,11 +1,11 @@
 class MeetingsController < ApplicationController
 
   def new
-    @meeting = Meeting.new
     @bookclub = Bookclub.find(params[:bookclub_id])
-    @meeting.bookclub = @bookclub
-    authorize @meeting
     authorize @bookclub
+    @meeting = Meeting.new(bookclub: @bookclub)
+    authorize @meeting
+    @meeting.bookclub = @bookclub
   end
 
   def create
