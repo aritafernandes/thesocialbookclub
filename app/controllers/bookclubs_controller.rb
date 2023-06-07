@@ -1,12 +1,13 @@
 class BookclubsController < ApplicationController
   before_action :set_bookclub, only: %i[show destroy]
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @bookclubs = Bookclub.all
+    @bookclubs = policy_scope(Bookclub.all)
   end
 
   def show
+    authorize @bookclub
   end
 
   def new
@@ -37,5 +38,4 @@ class BookclubsController < ApplicationController
   def bookclub_params
     params.require(:bookclub).permit(:name, :genre, :description, :photo)
   end
-
 end
