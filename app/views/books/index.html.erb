@@ -1,19 +1,24 @@
 <h1>List of books</h1>
 <div class="container mt-5">
   <div class="row">
-    <div class="cards col-8 mx-auto">
+    <div class="col-8 mx-auto">
       <% @books.each_with_index do |book, index| %>
         <% color = index.even? ? "even-color" : "odd-color"%>
-        <div class="card p-5 <%= color %>">
-          <%= book.title %>
-          <div class="pt-2">
-            <%= book.author %>
+        <div class="cards d-flex p-5 <%= color %>">
+          <div>
+            <%= image_tag book.image_link, height: 200, class: "shadow mb-3" %>
           </div>
-          <div class="pt-2">
-            <%= book.year %>
-          </div>
-          <div class="pt-4">
-            <%= book.description %>
+          <div class="d-flex flex-column ms-3">
+            <%= book.title %>
+            <div class="pt-2">
+              <%= book.author %>
+            </div>
+            <div class="pt-2">
+              <%= book.year %>
+            </div>
+            <div class="pt-4">
+              <%= book.description %>
+            </div>
           </div>
         </div>
       <% end %>
