@@ -6,6 +6,7 @@
    <div class="card p-4">
       <%= simple_form_for(@bookclub) do |f| %>
       <%= f.input :name, label: "Club Name" %>
+      <%= f.input :description %>
       <%= f.input :genre,  collection: ['Art', 'Classics', 'Fiction', 'Memoir', 'Biography', 'Comics', 'Graphic Novels','Music', 'Romance', 'Thriller', 'Historical Fiction', 'Mystery', 'Science', 'History', 'Science Fiction', 'Fantasy', 'Horror', 'Poetry' ] %>
       <%= f.input :photo, as: :file %>
       <div class="d-flex justify-content-around">

@@ -35,7 +35,7 @@ class BookclubsController < ApplicationController
   end
 
   def bookclub_params
-    params.require(:bookclub).permit(:name, :genre, :photo)
+    params.require(:bookclub).permit(:name, :genre, :description, :photo)
   end
 
 end
