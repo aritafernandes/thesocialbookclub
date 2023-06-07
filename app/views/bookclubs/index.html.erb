@@ -17,11 +17,11 @@
                   <p> <%= bookclub.description %> </p>
               </div>
               <div class="button">
-                Join
+                <%= link_to "Join", join_bookclub_path(bookclub), class: "button" %>
               </div>
             </div>
           </div>
       <% end %>
-    </div>
+     </div>
   </div>
 </div>
