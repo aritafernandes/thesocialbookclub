@@ -3,26 +3,24 @@
     <h1> List of Bookclubs</h1>
   </div>
   <div class="container">
-    <div class="row justify-content-center">
+    <div class="row d-flex justify-content-center mb-4">
       <% @bookclubs.each do |bookclub| %>
-        <% if bookclub.photo.attached?%>
-          <div class=" cards col-10 border-2 rounded-3 my-3 shadow p-4">
+          <div class=" cards col-10 border-2 rounded-3 my-3 shadow p-4 alig-items-center">
             <div class="d-flex justify-content-between align-items-center">
-              <div>
+              <% if bookclub.photo.attached?%>
                 <%= cl_image_tag bookclub.photo.key, height: 140, width: 140, class: "rounded-circle  shadow mb-3" %>
-              </div>
-              <div class="content m-4" style="overflow-y: scroll; max-height: 300px;">
-                <h3><strong><%= bookclub.name %></strong></h3>
-                  <div class="content-text m-4">
-                    <%= bookclub.description %>
-                  </div>
+              <% end %>
+              <div class="content-bookclub m-4">
+                <div class="text-start ">
+                  <h5><strong><%= bookclub.name %></strong></h5>
+                </div>
+                  <p> <%= bookclub.description %> </p>
               </div>
               <div class="button">
                 Join
               </div>
             </div>
           </div>
-        <% end %>
       <% end %>
     </div>
   </div>
