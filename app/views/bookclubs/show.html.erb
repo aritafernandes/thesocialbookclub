@@ -1,2 +1,4 @@
 <h1> Bookclub</h1>
-<%= link_to "Create meeting", new_bookclub_meeting_path(@bookclub) %>
+<% if policy(Meeting.new(bookclub: @bookclub)).new? %>
+  <%= link_to "Create meeting", new_bookclub_meeting_path(@bookclub) %>
+<% end %>
