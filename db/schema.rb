@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_07_090727) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_07_141215) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,6 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_090727) do
     t.bigint "bookclub_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
     t.index ["bookclub_id"], name: "index_bookclub_members_on_bookclub_id"
     t.index ["user_id"], name: "index_bookclub_members_on_user_id"
   end
