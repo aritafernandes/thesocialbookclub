@@ -15,7 +15,7 @@
    <div class="cards-home">
       <div class="row">
          <% @bookclubs.each do |bookclub| %>
-         <div class="col card mt-1 shadow p-4 m-4">
+         <div class="col cards mt-1 shadow p-4 m-4">
             <div class="d-flex flex-column align-items-center h-100">
                <% if bookclub.photo.attached?%>
                 <%= cl_image_tag bookclub.photo.key, height: 100, class: "rounded-circle  shadow mb-3" %>
