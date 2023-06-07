@@ -3,6 +3,6 @@ class BookclubMember < ApplicationRecord
   belongs_to :bookclub
 
   def admin?
-    @admin
+    admin
   end
 end

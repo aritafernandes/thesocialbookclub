@@ -5,8 +5,8 @@
 <div class="w-60 my-5 d-flex justify-content-center">
    <div class="card p-4">
       <%= simple_form_for [@bookclub, @meeting] do |f| %>
-      <%= f.input :book, label: "Search books by title or author" %>
-      <%= f.input :date_time %>
+      <%= f.input :book_id, collection: Book.all, label_method: lambda {|book| "#{book.author} - #{book.title}"}, prompt: "Search books by title" %>
+      <%= f.input :date_time, as: :datetime, html5: true  %>
       <%= f.input :video_link %>
       <%= f.input :location %>
       <div class="d-flex justify-content-around">
