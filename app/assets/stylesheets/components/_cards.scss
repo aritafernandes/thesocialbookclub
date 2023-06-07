@@ -10,7 +10,12 @@
 }
 
 .content-text {
-  min-height: 25vh;
+  height: 45vh;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
 }
 
 .cards {
