@@ -8,6 +8,8 @@ class BookclubsController < ApplicationController
 
   def show
     authorize @bookclub
+    @current_meeting = @bookclub.meetings.last
+    @book = @current_meeting.book if @bookclub.meetings.present?
   end
 
   def new
