@@ -15,18 +15,18 @@
    <div class="cards-home">
       <div class="row">
          <% @bookclubs.each do |bookclub| %>
-         <div class="col cards mt-1 shadow p-4 m-4">
+          <div class="col cards mt-1 shadow p-4 m-4">
             <div class="d-flex flex-column align-items-center h-100">
                <% if bookclub.photo.attached?%>
                 <%= cl_image_tag bookclub.photo.key, height: 100, class: "rounded-circle  shadow mb-3" %>
                <% end %>
                <p class="p-1"><%= bookclub.name %></p>
                <div class="d-flex justify-content-around">
-                  <%= link_to "Join", bookclub_path(bookclub), class: "button" %>
+                  <%= link_to "Join", join_bookclub_path(bookclub), class: "button" %>
                </div>
             </div>
-         </div>
-         <% end %>
+          </div>
+        <% end %>
       </div>
       <div class="d-flex justify-content-center p-5">
          <%= link_to "Browse all", bookclubs_path, class: "button-secondary" %>

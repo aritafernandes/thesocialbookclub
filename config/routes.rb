@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  get "/bookclubs/:id/join", to: "bookclubs#join", as: :join_bookclub
   resources :bookclubs, only: %i[index new create show destroy]
-
   resources :books, only: %i[index show]
 end
