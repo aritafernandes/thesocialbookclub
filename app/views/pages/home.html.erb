@@ -16,14 +16,24 @@
       <div class="row">
          <% @bookclubs.each do |bookclub| %>
          <div class="col cards mt-1 shadow p-4 m-4">
-            <div class="d-flex flex-column align-items-center h-100">
+            <div class="h-100">
+              <div class="content">
                <% if bookclub.photo.attached?%>
                 <%= cl_image_tag bookclub.photo.key, height: 100, class: "rounded-circle  shadow mb-3" %>
                <% end %>
                <p class="p-1"><%= bookclub.name %></p>
-               <div class="d-flex justify-content-around">
-                  <%= link_to "Join", bookclub_path(bookclub), class: "button" %>
+               <div class="content-text">
+                  <% if bookclub.description.chars.count > 300 %>
+                    <%= bookclub.description.first(300) + "..." %>
+                  <% else %>
+                    <p class="p-1"><%= bookclub.description %></p>
+                <% end %>
                </div>
+               <div class="d-flex flex-column justify-content-around mt-3">
+                  <%= link_to "Join", bookclub_path(bookclub), class: "button text-center" %>
+                  <%= link_to "Learn more", bookclub_path(bookclub), class: "learn-btn pt-3 text-decoration-none" %>
+               </div>
+              </div>
             </div>
          </div>
          <% end %>
