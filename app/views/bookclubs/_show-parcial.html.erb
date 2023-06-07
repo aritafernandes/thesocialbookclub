@@ -1,0 +1,13 @@
+<div>
+  <div>
+    <%= @bookclub.name %>
+    <%#= @bookclub.description %>
+    <%= link_to "Join", bookclub_path, class: "button btn btn-light mb-3 m-2" %>
+  </div>
+  <div>
+    <%= @book.title %>
+    <%= @book.author %>
+    <%= @book.description %>
+    <%= @book.year %>
+  </div>
+</div>
