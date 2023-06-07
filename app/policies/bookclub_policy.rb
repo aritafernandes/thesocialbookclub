@@ -17,4 +17,8 @@ class BookclubPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def join?
+    true
+  end
 end

@@ -30,13 +30,13 @@
                 <% end %>
                </div>
                <div class="d-flex flex-column justify-content-around mt-3">
-                  <%= link_to "Join", bookclub_path(bookclub), class: "button text-center" %>
+                  <%= link_to "Join", join_bookclub_path(bookclub), class: "button" %>
                   <%= link_to "Learn more", bookclub_path(bookclub), class: "learn-btn pt-3 text-decoration-none" %>
                </div>
               </div>
             </div>
-         </div>
-         <% end %>
+          </div>
+        <% end %>
       </div>
       <div class="d-flex justify-content-center p-5">
          <%= link_to "Browse all", bookclubs_path, class: "button-secondary" %>
