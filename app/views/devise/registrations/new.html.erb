@@ -17,7 +17,10 @@
         <%= f.input :password_confirmation,
                     required: true,
                     input_html: { autocomplete: "new-password" } %>
-      <div>
+        <%= f.input :photo, as: :file,
+            required: true
+          %>
+      </div>
       <div class="form-actions d-flex justify-content-center ">
         <%= f.button :submit, "Sign up", class: "button btn btn-light" %>
       </div>
