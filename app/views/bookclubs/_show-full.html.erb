@@ -58,7 +58,7 @@
           <div>
             <%= @current_meeting.date_time %>
           </div>
-        <% end %>
+
       </div>
       <div class="d-flex">
         <% if @current_meeting.pending? %>
@@ -75,6 +75,7 @@
             <div class="button-meet mx-3">accepted</div>
           </div>
         <% end %>
+      <% end %>
       </div>
     </div>
   </div>
