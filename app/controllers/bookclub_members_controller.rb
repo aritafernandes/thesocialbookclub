@@ -1,7 +1,5 @@
 class BookclubMembersController < ApplicationController
-
   def index
-    
   end
 
   def show
@@ -9,5 +7,4 @@ class BookclubMembersController < ApplicationController
 
   def create
   end
-
 end
