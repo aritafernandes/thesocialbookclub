@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :bookclubs, through: :bookclub_members
   has_many :my_books
   has_many :books, through: :my_books
+  has_one_attached :photo
+
 end
