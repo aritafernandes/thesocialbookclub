@@ -23,4 +23,12 @@ class MeetingPolicy < ApplicationPolicy
     member = @record.bookclub.bookclub_members.find_by(user_id: @user.id)
     !member.nil?
   end
+
+  def accept?
+    true
+  end
+
+  def decline?
+    true
+  end
 end

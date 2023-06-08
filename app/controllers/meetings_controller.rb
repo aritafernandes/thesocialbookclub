@@ -11,12 +11,27 @@ class MeetingsController < ApplicationController
   def create
     @meeting = Meeting.new(meeting_params)
     @meeting.bookclub = Bookclub.find(params[:bookclub_id])
+    @meeting.status = :pending
     if @meeting.save
       authorize @meeting
       redirect_to bookclub_path(@meeting.bookclub)
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def accept
+    @meeting = Meeting.find(params[:meeting_id])
+    authorize @meeting
+    @meeting.accepted!
+    redirect_to bookclub_path(@meeting.bookclub), status: :see_other
+  end
+
+  def decline
+    @meeting = Meeting.find(params[:meeting_id])
+    authorize @meeting
+    @meeting.declined!
+    redirect_to bookclub_path(@meeting.bookclub), status: :see_other
   end
 
   def show
