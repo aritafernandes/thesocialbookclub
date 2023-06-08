@@ -3,6 +3,10 @@ class BooksController < ApplicationController
 
   def index
     @books = policy_scope(Book)
+    if params[:query].present?
+      sql_subquery = "title ILIKE :query OR author ILIKE :query"
+      @books = @books.where(sql_subquery, query: "%#{params[:query]}%")
+    end
   end
 
   def show
