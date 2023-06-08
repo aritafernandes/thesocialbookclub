@@ -21,17 +21,18 @@
                <% if bookclub.photo.attached?%>
                 <%= cl_image_tag bookclub.photo.key, height: 100, class: "rounded-circle  shadow mb-3" %>
                <% end %>
-               <p class="p-1"><%= bookclub.name %></p>
-               <div class="content-text">
-                  <% if bookclub.description.chars.count > 300 %>
+               <h5><%= bookclub.name %></h1>
+               <div class="content-text mt-2">
+                 <p><% if bookclub.description.chars.count > 300 %>
                     <%= bookclub.description.first(300) + "..." %>
+                  </p>
                   <% else %>
                     <p class="p-1"><%= bookclub.description %></p>
                 <% end %>
                </div>
                <div class="d-flex flex-column justify-content-around mt-3">
                   <%= link_to "Join", join_bookclub_path(bookclub), class: "button" %>
-                  <%= link_to "Learn more", bookclub_path(bookclub), class: "learn-btn pt-3 text-decoration-none" %>
+                  <%= link_to "Learn More", bookclub_path(bookclub), class: "learn-btn pt-3 text-decoration-none" %>
                </div>
               </div>
             </div>
