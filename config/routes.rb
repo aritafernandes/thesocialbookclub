@@ -10,5 +10,10 @@ Rails.application.routes.draw do
     resources :meetings, only: %i[new create show]
   end
 
+  resources :meetings, only: [] do
+    post "accept", to: "meetings#accept", as: "accept"
+    post "decline", to: "meetings#decline", as: "decline"
+  end
+
   resources :books, only: %i[index show]
 end
