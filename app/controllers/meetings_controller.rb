@@ -13,7 +13,7 @@ class MeetingsController < ApplicationController
     @meeting.bookclub = Bookclub.find(params[:bookclub_id])
     if @meeting.save
       authorize @meeting
-      redirect_to bookclub_meeting_path(@meeting.bookclub, @meeting)
+      redirect_to bookclub_path(@meeting.bookclub)
     else
       render :new, status: :unprocessable_entity
     end

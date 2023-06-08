@@ -1,4 +1,5 @@
-<h1> Bookclub</h1>
+<%= render "show-partial" %>
+<%# Authorizing the member of the bookclub to create meeting %>
 <% if policy(Meeting.new(bookclub: @bookclub)).new? %>
-  <%= link_to "Create meeting", new_bookclub_meeting_path(@bookclub) %>
+  <%= link_to "Create a new meeting", new_bookclub_meeting_path(@bookclub) %>
 <% end %>
