@@ -42,7 +42,7 @@
                   <p>Currently Reading</p>
                   <p class="p-1"><%=image_tag bookclub.books.last.image_link %></p>
                   <% else %>
-                  <p>There's no meeting yet.</p>
+                  <p><strong>There's no meeting yet.</strong></p>
                   <% end %>
                   <div class="d-flex flex-column justify-content-around mt-3">
                      <%= link_to "Join", join_bookclub_path(bookclub), class: "button" %>
