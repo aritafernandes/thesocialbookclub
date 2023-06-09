@@ -12,6 +12,7 @@ class BookclubsController < ApplicationController
 
     @current_meeting = @bookclub.meetings.last
     @book = @current_meeting.book if @bookclub.meetings.present?
+    @is_bookclub_member = @bookclub.bookclub_members.where(user: current_user).empty?
   end
 
   def new
