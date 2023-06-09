@@ -11,7 +11,7 @@
             <p style="margin-bottom: 0">Schedule virtual and in-person meetings.</p>
           </div>
           <div class="mt-3">
-            <%= link_to "Start a Bookclub", new_bookclub_path, class: "button" %>
+            <%= link_to "Start a Bookclub", new_bookclub_path, class: "button shadow" %>
           </div>
         </div>
       </div>
@@ -21,37 +21,37 @@
 <div class="container mt-5">
    <div class="cards-home">
       <div class="row">
-         <% @bookclubs.each do |bookclub| %>
-         <div class="col cards mt-1 shadow p-4 m-4">
+        <% @bookclubs.each do |bookclub| %>
+          <div class="col cards mt-1 shadow p-4 m-4">
             <div class="h-100">
-               <div class="content">
-                  <% if bookclub.photo.attached?%>
-                  <%= cl_image_tag bookclub.photo.key, height: 100, class: "rounded-circle  shadow mb-3" %>
-                  <% end %>
-                  <h5>
-                  <%= bookclub.name %></h1>
-                  <div class="content-text mt-2">
-                     <p><% if bookclub.description.chars.count > 300 %>
-                        <%= bookclub.description.first(300) + "..." %>
-                     </p>
-                     <% else %>
-                     <p class="p-1"><%= bookclub.description %></p>
-                     <% end %>
-                  </div>
-                  <% if bookclub.books.present? %>
+              <div class="content">
+                <% if bookclub.photo.attached?%>
+                <%= cl_image_tag bookclub.photo.key, height: 100, class: "rounded-circle  shadow mb-3" %>
+                <% end %>
+                <h5>
+                <%= bookclub.name %></h1>
+                <div class="content-text mt-2">
+                   <p><% if bookclub.description.chars.count > 300 %>
+                      <%= bookclub.description.first(300) + "..." %>
+                   </p>
+                   <% else %>
+                   <p class="p-1"><%= bookclub.description %></p>
+                   <% end %>
+                </div>
+                <% if bookclub.books.present? %>
                   <p>Currently Reading</p>
-                  <p class="p-1"><%=image_tag bookclub.books.last.image_link %></p>
+                  <p class="shadow"><%=image_tag bookclub.books.last.image_link %></p>
                   <% else %>
                   <p><strong>There's no meeting yet.</strong></p>
-                  <% end %>
-                  <div class="d-flex flex-column justify-content-around mt-3">
-                     <%= link_to "Join", join_bookclub_path(bookclub), class: "button" %>
-                     <%= link_to "Learn More", bookclub_path(bookclub), class: "learn-btn pt-3 text-decoration-none" %>
-                  </div>
-               </div>
+                <% end %>
+                <div class="d-flex flex-column justify-content-around mt-3">
+                  <%= link_to "Join", join_bookclub_path(bookclub), class: "button" %>
+                  <%= link_to "Learn More", bookclub_path(bookclub), class: "learn-btn pt-3 text-decoration-none" %>
+                </div>
+              </div>
             </div>
-         </div>
-         <% end %>
+          </div>
+        <% end %>
       </div>
       <div class="d-flex justify-content-center p-5">
          <%= link_to "Browse all", bookclubs_path, class: "button-secondary" %>

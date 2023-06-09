@@ -11,10 +11,10 @@
                 <%= cl_image_tag bookclub.photo.key, height: 140, width: 140, class: "rounded-circle  shadow mb-3" %>
               <% end %>
               <div class="container justify-content-between">
-                <div class="text-start ">
+                <div class="text-start mx-4 ">
                   <h5><strong><%= bookclub.name %></strong></h5>
                 </div>
-                  <p> <%= bookclub.description %> </p>
+                  <p class="mx-4"> <%= bookclub.description %> </p>
               </div>
               <div class="button m-5">
                 <%= link_to "Learn more", bookclub_path(bookclub), class: "button" %>
