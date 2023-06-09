@@ -116,14 +116,14 @@ bookclub5.save!
 puts "Created bookclub 5"
 puts "---------------------------"
 
-puts "Create user admins"
+puts "Create user"
 puts "---------------------------"
 
 user1 = User.create(email: "rita@admin.com", password: "123123")
 user2 = User.create(email: "thamara@admin.com", password: "123123")
 user3 = User.create(email: "gabriel@admin.com", password: "123123")
 
-puts "Created user admins"
+puts "Created user"
 puts "---------------------------"
 
 puts "Create bookclub members for club 1"
@@ -171,9 +171,9 @@ puts "---------------------------"
 puts "Create bookclub members for club 5"
 puts "---------------------------"
 
-bookclubmember1 = BookclubMember.create(user: user1, bookclub: bookclub4)
-bookclubmember2 = BookclubMember.create(user: user2, bookclub: bookclub4, admin: true )
-bookclubmember3 = BookclubMember.create(user: user3, bookclub: bookclub4)
+bookclubmember1 = BookclubMember.create(user: user1, bookclub: bookclub5)
+bookclubmember2 = BookclubMember.create(user: user2, bookclub: bookclub5, admin: true )
+bookclubmember3 = BookclubMember.create(user: user3, bookclub: bookclub5)
 
 puts "Created bookclub members club 5"
 puts "---------------------------"
@@ -202,6 +202,10 @@ puts "Create meeting"
 puts "---------------------------"
 
 meeting1 = Meeting.create(bookclub: bookclub1, book: Book.all.sample, location: "lisbon", date_time: DateTime.new(2023,6,9,5,0,0) )
+meeting2 = Meeting.create(bookclub: bookclub2, book: Book.all.sample, location: "porto", date_time: DateTime.new(2023,6,12,6,0,0) )
+meeting3 = Meeting.create(bookclub: bookclub3, book: Book.all.sample, location: "aveiro", date_time: DateTime.new(2023,8,10,6,0,0) )
+meeting4 = Meeting.create(bookclub: bookclub4, book: Book.all.sample, location: "sines", date_time: DateTime.new(2023,8,10,6,0,0) )
+meeting5 = Meeting.create(bookclub: bookclub5, book: Book.all.sample, location: "viana do castelo", date_time: DateTime.new(2023,8,10,6,0,0) )
 
 
 puts "Created meeting"
