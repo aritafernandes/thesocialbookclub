@@ -86,8 +86,8 @@ puts "---------------------------"
 puts "Creating bookclub 3"
 puts "---------------------------"
 
-file = URI.open("https://api.bookclubs.com/files/jbc_form_avatars/1146/63bb9favatar.jpg.200x200_q85_crop.png")
-bookclub3 = Bookclub.new(name: "Manga and Books", description: "Here, we will discuss books, and manga.")
+file = URI.open("https://api.bookclubs.com/files/club_images/5968894/avatar_p3ojgty.png.200x200_q85_crop.png")
+bookclub3 = Bookclub.new(name: "The Reading Corner", description: "The Reading Corner Book Club is an extension of our publishing platform thereadingcorner.art. At TRC, we aim to diversify people's shelves by championing underrepresented authors, diversifying people's shelves and rebuilding the industry page by page.")
 bookclub3.photo.attach(io: file, filename: "#{bookclub3.name}.png", content_type: "image/png")
 bookclub3.save!
 
@@ -191,21 +191,32 @@ puts "---------------------------"
 puts "Create user 2 photo"
 puts "---------------------------"
 
-file = URI.open("https://files.slack.com/files-tmb/T02NE0241-F05CBEN9324-4ce2c7cb42/cpm35_2023-04-13_182207.879_720.jpg")
+file = URI.open("https://avatars.githubusercontent.com/u/130979836?v=4")
 user2.photo.attach(io: file, filename: "#{user2.photo}.jpg", content_type: "image/jpg")
 user2.save!
 
 puts "Created user 2 photo"
 puts "---------------------------"
 
+puts "Create user 3 photo"
+puts "---------------------------"
+
+file = URI.open("https://avatars.githubusercontent.com/u/127883142?v=4")
+user3.photo.attach(io: file, filename: "#{user3.photo}.jpg", content_type: "image/jpg")
+user3.save!
+
+puts "Created user 3 photo"
+puts "---------------------------"
+
+
 puts "Create meeting"
 puts "---------------------------"
 
-meeting1 = Meeting.create(bookclub: bookclub1, book: Book.all.sample, location: "lisbon", date_time: DateTime.new(2023,6,9,5,0,0) )
-meeting2 = Meeting.create(bookclub: bookclub2, book: Book.all.sample, location: "porto", date_time: DateTime.new(2023,6,12,6,0,0) )
-meeting3 = Meeting.create(bookclub: bookclub3, book: Book.all.sample, location: "aveiro", date_time: DateTime.new(2023,8,10,6,0,0) )
-meeting4 = Meeting.create(bookclub: bookclub4, book: Book.all.sample, location: "sines", date_time: DateTime.new(2023,8,10,6,0,0) )
-meeting5 = Meeting.create(bookclub: bookclub5, book: Book.all.sample, location: "viana do castelo", date_time: DateTime.new(2023,8,10,6,0,0) )
+meeting1 = Meeting.create(bookclub: bookclub1, book: Book.all.sample, location: "Rua do Conde de Redondo 91B, 1150-103, Lisboa", date_time: DateTime.new(2023,6,9,5,0,0) )
+meeting2 = Meeting.create(bookclub: bookclub2, book: Book.all.sample, location: "https://us06web.zoom.us/j/84145373454?pwd=WHNCNmdDM1lTdDJEcW03R004ZExpQT09", date_time: DateTime.new(2023,6,12,6,0,0) )
+meeting3 = Meeting.create(bookclub: bookclub3, book: Book.all.sample, location: "Avenida Padre Manuel da Nóbrega, 9, 1000-223, Areeiro", date_time: DateTime.new(2023,8,10,6,0,0) )
+meeting4 = Meeting.create(bookclub: bookclub4, book: Book.all.sample, location: "Rua Sousa Viterbo, 32, 1900-427, Penha de França", date_time: DateTime.new(2023,8,10,6,0,0) )
+meeting5 = Meeting.create(bookclub: bookclub5, book: Book.all.sample, location: "Avenida das Tílias, 5, 2635-546, Rio de Mouro", date_time: DateTime.new(2023,8,10,6,0,0) )
 
 
 puts "Created meeting"
