@@ -46,7 +46,6 @@
           </div>
         <% end %>
         <div class="cards col-8 d-flex flex-column mx-auto p-4 my-5 mx-3">
-          <%# Authorizing the member of the bookclub to create meeting %>
           <div class="d-flex justify-content-between">
             <% if policy(Meeting.new(bookclub: @bookclub)).new? %>
               <p><strong>Meeting details</strong></p>
