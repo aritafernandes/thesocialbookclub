@@ -1,13 +1,16 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('assets/banner_home.png');">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('assets/banner_home.png');">
    <div class="container">
-      <div class="row">
-         <div class="col6 mt-5 d-flex flex-column text-end">
+      <div class="d-flex flex-direction-column justify-content-between">
+         <div class="white">
+         </div>
+         <div class="mt-5">
             <div class="container">
                <h1><strong>Read a Book Together</strong></h1>
-               <p>Start or join a Bookclub.</p>
-               <p>Schedule virtual and in-person meetings.</p>
-               <%= link_to "Start a Bookclub", new_bookclub_path, class: "button" %>
-            </div>
+               <p style="margin-bottom: 0">Start or join a Bookclub.</p>
+               <p style="margin-bottom: 0">Schedule virtual and in-person meetings.</p>
+               <div class="mt-3">
+                  <%= link_to "Start a Bookclub", new_bookclub_path, class: "button" %>            </div>
+               </div>
          </div>
       </div>
    </div>
@@ -36,7 +39,7 @@
                   <p>Currently Reading</p>
                   <p class="p-1"><%=image_tag bookclub.books.last.image_link %></p>
                   <% else %>
-                  <p>Start your first meeting. Add a book!</p>
+                  <p>There's no meeting yet.</p>
                   <% end %>
                   <div class="d-flex flex-column justify-content-around mt-3">
                      <%= link_to "Join", join_bookclub_path(bookclub), class: "button" %>
