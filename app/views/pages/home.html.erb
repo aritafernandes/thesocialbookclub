@@ -28,10 +28,9 @@
                 <% if bookclub.photo.attached?%>
                 <%= cl_image_tag bookclub.photo.key, height: 100, class: "rounded-circle  shadow mb-3" %>
                 <% end %>
-                <h5>
-                <%= bookclub.name %></h1>
                 <div class="content-text mt-2">
-                   <p><% if bookclub.description.chars.count > 300 %>
+                  <h5><%= bookclub.name %></h5>
+                    <% if bookclub.description.chars.count > 300 %>
                       <%= bookclub.description.first(300) + "..." %>
                    </p>
                    <% else %>
