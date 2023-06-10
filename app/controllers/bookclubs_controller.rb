@@ -35,7 +35,7 @@ class BookclubsController < ApplicationController
 
   def join
     authorize @bookclub
-    BookclubMember.find_or_create_by(user: current_user, bookclub: @bookclub, admin: false)
+    BookclubMember.find_or_create_by(user: current_user, bookclub: @bookclub)
     redirect_to bookclub_path(@bookclub)
   end
 
