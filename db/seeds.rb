@@ -167,7 +167,7 @@ puts "Create bookclub members for club 2"
 puts "---------------------------"
 
 bookclubmember1 = BookclubMember.create(user: user1, bookclub: bookclub2)
-bookclubmember2 = BookclubMember.create(user: user2, bookclub: bookclub2, admin: true )
+# bookclubmember2 = BookclubMember.create(user: user2, bookclub: bookclub2, admin: true )
 bookclubmember3 = BookclubMember.create(user: user3, bookclub: bookclub2)
 
 puts "Created bookclub members for club 2"
