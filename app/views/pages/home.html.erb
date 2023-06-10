@@ -31,6 +31,7 @@
                 <div class="content-text mt-2">
                   <h5><%= bookclub.name %></h5>
                     <% if bookclub.description.chars.count > 300 %>
+                    <p>
                       <%= bookclub.description.first(300) + "..." %>
                    </p>
                    <% else %>
@@ -44,8 +45,11 @@
                   <p><strong>There's no meeting yet.</strong></p>
                 <% end %>
                 <div class="d-flex flex-column justify-content-around mt-3">
+                  <% if bookclub.bookclub_members.where(user: current_user).empty? %>
                   <%= link_to "Join", join_bookclub_path(bookclub), class: "button" %>
+                  <% else %>
                   <%= link_to "Learn More", bookclub_path(bookclub), class: "learn-btn pt-3 text-decoration-none" %>
+                  <% end %>
                 </div>
               </div>
             </div>
