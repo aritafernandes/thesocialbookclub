@@ -44,6 +44,13 @@ class BookclubsController < ApplicationController
     redirect_to bookclubs_path, status: :see_other
   end
 
+  def my_bookclubs
+    #joining bookclub_members table to bookclubs table
+    #filtering by bookclub_member/current_user
+    @my_bookclubs = Bookclub.joins(:bookclub_members).where(bookclub_members: { user: current_user })
+    authorize @my_bookclubs
+  end
+
   private
 
   def set_bookclub
