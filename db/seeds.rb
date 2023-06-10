@@ -34,15 +34,41 @@ puts "---------------------------"
 User.destroy_all
 puts "Destroyed all users"
 
-authors = ["toni+morrison", "annie+ernaux", "jose+saramago", "david+sedaris"]
+authors = [
+  "toni+morrison",
+  "annie+ernaux",
+  "jose+saramago",
+  "david+sedaris",
+  "joan+didion",
+  "rachel+carlson",
+  "isabel+figueiredo",
+  "conceicao+evaristo",
+  "jk+rowling",
+  "james+baldwin",
+  "samantha+irby",
+  "ayad+akhtar",
+  "eca+queiroz",
+  "ondjaki",
+  "rachel+cusk",
+  "gisela+casimiro",
+  "ocean+vuong",
+  "sally+rooney",
+  "bruno+vieira+amaral",
+  "leila+slimani",
+  "george+r+r+martin",
+  "edouard+louis",
+  "chimamanda+ngozi+adichie",
+  "bernardine+evaristo"
+]
 
 authors.each do |author|
-  url = "https://www.googleapis.com/books/v1/volumes?q=inauthor:#{author}&langRestrict=en"
+  url = "https://www.googleapis.com/books/v1/volumes?q=inauthor:#{author}"
   books_serialized = URI.open(url).read
   books = JSON.parse(books_serialized)
 
   puts "Fetch API"
   puts "---------------------------"
+  puts author
   books["items"].each do |book|
 
   next if book["volumeInfo"]["authors"].nil?
