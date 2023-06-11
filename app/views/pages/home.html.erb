@@ -28,6 +28,11 @@
         <div class="col cards mt-1 shadow p-4 m-4">
           <div class="h-100">
             <div class="content">
+              <div class="text-end">
+                <% if bookclub.bookclub_members.find_by(user: current_user)&.admin? %>
+                  <p class="text-end">Host</p>
+                <% end %>
+              </div>
               <% if bookclub.photo.attached?%>
                 <%= cl_image_tag bookclub.photo.key, height: 140, width: 140,  class: "rounded-circle  shadow mb-3" %>
               <% end %>
