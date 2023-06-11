@@ -3,5 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @bookclubs = Bookclub.where.associated(:books).first(3)
+    @meetings = Meeting.all.includes(:book).last(5)
   end
 end
