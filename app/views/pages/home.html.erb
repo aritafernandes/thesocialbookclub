@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(<%= asset_url "banner_home" %>);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(<%= asset_url "banner_home" %>);">
   <div class="container">
     <div class="d-flex flex-direction-column justify-content-between">
       <div class="white">
@@ -64,21 +64,20 @@
     </div>
   </div>
 </div>
-
 <div class="container">
   <div class="d-flex justify-content-center">
     <h4>Recommendations</h4>
   </div>
   <div class="d-flex justify-content-center">
-    <p>June's Must-Reads: Dive into Enchanting Stories. Click for Literary Bliss!</p>
+    <p class="text-center">June's Must-Reads: Dive into Enchanting Stories. Click for Literary Bliss!</p>
   </div>
-  <div class="row justify-content-md-center">
-    <div class="col-md-auto mb-5 mb-md-5">
-      <div style="height: 300px;">
-        <% @meetings.each do |meeting| %>
-          <%= link_to(image_tag(meeting.book.image_link, style: "width: 150px; height: auto;", class: "zoom-effect"), book_path(meeting.book.id), class: "p-2") %>
-        <% end %>
-      </div>
+  <div class="row justify-content-center">
+    <div class="col-md-auto col-sm-6 col-12 mb-4 text-center">
+      <% @meetings.each do |meeting| %>
+        <a href="<%= book_path(meeting.book.id) %>" class="p-2">
+          <%= image_tag(meeting.book.image_link, style: "width: 150px; height: auto;", class: "zoom-effect") %>
+        </a>
+      <% end %>
     </div>
   </div>
 </div>
