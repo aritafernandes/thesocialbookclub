@@ -29,7 +29,7 @@
           <div class="h-100">
             <div class="content">
               <% if bookclub.photo.attached?%>
-                <%= cl_image_tag bookclub.photo.key, height: 100, class: "rounded-circle  shadow mb-3" %>
+                <%= cl_image_tag bookclub.photo.key, height: 140, width: 140,  class: "rounded-circle  shadow mb-3" %>
               <% end %>
               <div class="content-text mt-2">
                 <h5><%= bookclub.name %></h5>
@@ -82,4 +82,3 @@
     </div>
   </div>
 </div>
-
