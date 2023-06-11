@@ -3,7 +3,7 @@ class BookclubsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @bookclubs = policy_scope(Bookclub.all)
+    @bookclubs = policy_scope(Bookclub.all.reverse_order)
   end
 
   def show

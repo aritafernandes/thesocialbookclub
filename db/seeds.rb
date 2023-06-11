@@ -90,20 +90,22 @@ end
 
 puts "Creating bookclub 1"
 puts "---------------------------"
-file = URI.open("https://api.bookclubs.com/files/club_images/32267/avatar.jpg.200x200_q85_crop.jpg")
-bookclub1 = Bookclub.new(name: "Nasty Women Book Club", description: "We are a feminist book club and read books about strong female leads. The name Nasty Women comes from the 2016 US presidential debate where Donald Trump referred to Hillary Clinton as a Nasty Woman. We love reading all books with a feminist take, and proudly claim Roxane Gay as our Patron Saint.")
+
+file = URI.open("https://res.cloudinary.com/dhvsyhahj/image/upload/v1686505671/bookclub_lord_of_the_rings_xs47s4.jpg")
+bookclub1 = Bookclub.new(name: "The Magical Realms Book Club", description: "Journey to enchanting worlds like Harry Potter, Lord of the Rings, and Game of Thrones. Let's immerse ourselves in epic tales of magic and adventure.")
 bookclub1.photo.attach(io: file, filename: "#{bookclub1.name}.jpg", content_type: "image/jpg")
 bookclub1.save!
 
 puts "Created bookclub 1"
 puts "---------------------------"
 
+
 puts "Creating bookclub 2"
 puts "---------------------------"
 
-file = URI.open("https://api.bookclubs.com/files/club_images/5968920/87363davatar.jpg.200x200_q85_crop.png")
-bookclub2 = Bookclub.new(name: "The Horror Fiction Book Club", description: "The Horror Fiction Book Club (mostly) meets on the final Monday of each month (7-8 pm). Even though we are a library book club, members are not required to live in Prince William County to attend meetings. All you need to do is read the book and click the link to join in the conversation! Those brave enough can join us virtually via Webex.")
-bookclub2.photo.attach(io: file, filename: "#{bookclub2.name}.png", content_type: "image/png")
+file = URI.open("https://res.cloudinary.com/dhvsyhahj/image/upload/v1686505671/bookclub_lgbtq_zoh56m.jpg")
+bookclub2 = Bookclub.new(name: "The Literary Mosaic Club: ", description: "Piece by piece, we build a beautiful literary mosaic. We read works by authors from different ethnicities, LGBTQ+ communities, and abilities, celebrating the rich tapestry of humanity.")
+bookclub2.photo.attach(io: file, filename: "#{bookclub2.name}.jpg", content_type: "image/jpg")
 bookclub2.save!
 
 puts "Created bookclub 2"
@@ -112,13 +114,14 @@ puts "---------------------------"
 puts "Creating bookclub 3"
 puts "---------------------------"
 
-file = URI.open("https://api.bookclubs.com/files/club_images/5968894/avatar_p3ojgty.png.200x200_q85_crop.png")
-bookclub3 = Bookclub.new(name: "The Reading Corner", description: "The Reading Corner Book Club is an extension of our publishing platform thereadingcorner.art. At TRC, we aim to diversify people's shelves by championing underrepresented authors, diversifying people's shelves and rebuilding the industry page by page.")
-bookclub3.photo.attach(io: file, filename: "#{bookclub3.name}.png", content_type: "image/png")
+file = URI.open("https://res.cloudinary.com/dhvsyhahj/image/upload/v1686506690/bookclub_webdev_qtj9i9.jpg")
+bookclub3 = Bookclub.new(name: "Rails & Revelations Book Club", description: "Rails development and beyond! We dive into a diverse range of books—fiction, non-fiction, philosophy, or even poetry—that spark curiosity and ignite thought-provoking discussions among Rails developers.")
+bookclub3.photo.attach(io: file, filename: "#{bookclub3.name}.jpg", content_type: "image/jpg")
 bookclub3.save!
 
-puts "Created bookclub3"
+puts "Created bookclub 3"
 puts "---------------------------"
+
 
 puts "Creating bookclub 4"
 puts "---------------------------"
@@ -140,6 +143,73 @@ bookclub5.photo.attach(io: file, filename: "#{bookclub5.name}.png", content_type
 bookclub5.save!
 
 puts "Created bookclub 5"
+puts "---------------------------"
+
+puts "Creating bookclub 6"
+puts "---------------------------"
+
+file = URI.open("https://res.cloudinary.com/dhvsyhahj/image/upload/v1686505672/bookclub_lisbon_fbizlr.jpg")
+bookclub6 = Bookclub.new(name: "The Lisboa Book Club", description: " Let's dive into literature while sipping on a cup of Portuguese coffee. Join us as we discuss books set in Lisbon, delve into Portuguese literature, and celebrate the charm of the city.")
+bookclub6.photo.attach(io: file, filename: "#{bookclub6.name}.jpg", content_type: "image/jpg")
+bookclub6.save!
+
+puts "Created bookclub 6"
+puts "---------------------------"
+
+
+puts "Creating bookclub 7"
+puts "---------------------------"
+
+file = URI.open("https://res.cloudinary.com/dhvsyhahj/image/upload/v1686505671/bookclub_david_sedaris_z7dgct.jpg")
+bookclub7 = Bookclub.new(name: "The Sedaris Saloon", description: "Happiness is not something ready-made. It comes from your own actions... and from a good book.")
+bookclub7.photo.attach(io: file, filename: "#{bookclub7.name}.jpg", content_type: "image/jpg")
+bookclub7.save!
+
+puts "Created bookclub 7"
+puts "---------------------------"
+
+
+puts "Creating bookclub 8"
+puts "---------------------------"
+
+file = URI.open("https://res.cloudinary.com/dhvsyhahj/image/upload/v1686505671/bookclub_fran_zxn82y.jpg")
+bookclub8 = Bookclub.new(name: "Think before you speak. Read before you think.", description: "Great people talk about ideas, average people talk about things, and small people talk about wine.")
+bookclub8.photo.attach(io: file, filename: "#{bookclub8.name}.jpg", content_type: "image/jpg")
+bookclub8.save!
+
+puts "Created bookclub 8"
+puts "---------------------------"
+
+puts "Creating bookclub 9"
+puts "---------------------------"
+file = URI.open("https://api.bookclubs.com/files/club_images/32267/avatar.jpg.200x200_q85_crop.jpg")
+bookclub9 = Bookclub.new(name: "Nasty Women Book Club", description: "We are a feminist book club and read books about strong female leads. The name Nasty Women comes from the 2016 US presidential debate where Donald Trump referred to Hillary Clinton as a Nasty Woman. We love reading all books with a feminist take, and proudly claim Roxane Gay as our Patron Saint.")
+bookclub9.photo.attach(io: file, filename: "#{bookclub9.name}.jpg", content_type: "image/jpg")
+bookclub9.save!
+
+puts "Created bookclub 9"
+puts "---------------------------"
+
+puts "Creating bookclub 10"
+puts "---------------------------"
+
+file = URI.open("https://api.bookclubs.com/files/club_images/5968920/87363davatar.jpg.200x200_q85_crop.png")
+bookclub10 = Bookclub.new(name: "The Horror Fiction Book Club", description: "The Horror Fiction Book Club (mostly) meets on the final Monday of each month (7-8 pm). Even though we are a library book club, members are not required to live in Prince William County to attend meetings. All you need to do is read the book and click the link to join in the conversation! Those brave enough can join us virtually via Webex.")
+bookclub10.photo.attach(io: file, filename: "#{bookclub10.name}.png", content_type: "image/png")
+bookclub10.save!
+
+puts "Created bookclub 10"
+puts "---------------------------"
+
+puts "Creating bookclub 11"
+puts "---------------------------"
+
+file = URI.open("https://api.bookclubs.com/files/club_images/5968894/avatar_p3ojgty.png.200x200_q85_crop.png")
+bookclub11 = Bookclub.new(name: "The Reading Corner", description: "The Reading Corner Book Club is an extension of our publishing platform thereadingcorner.art. At TRC, we aim to diversify people's shelves by championing underrepresented authors, diversifying people's shelves and rebuilding the industry page by page.")
+bookclub11.photo.attach(io: file, filename: "#{bookclub11.name}.png", content_type: "image/png")
+bookclub11.save!
+
+puts "Created bookclub11"
 puts "---------------------------"
 
 puts "Create user"
