@@ -4,24 +4,26 @@
   </div>
   <div class="container">
     <div class="row d-flex justify-content-center mb-4">
-      <% @bookclubs.each do |bookclub| %>
-        <div class=" cards col-12 border-2 rounded-3 my-3 shadow p-4 alig-items-center">
-          <div class="d-flex justify-content-between align-items-center">
-            <% if bookclub.photo.attached?%>
-              <%= cl_image_tag bookclub.photo.key, height: 140, width: 140, class: "rounded-circle  shadow mb-3" %>
-            <% end %>
-            <div class="container justify-content-between">
-              <div class="text-start mx-4 ">
-                <h5><strong><%= bookclub.name %></strong></h5>
+      <div class="col-10">
+        <% @bookclubs.each do |bookclub| %>
+          <div class=" cards col-12 border-2 rounded-3 my-3 shadow p-4 alig-items-center">
+            <div class="d-flex justify-content-between align-items-center">
+              <% if bookclub.photo.attached?%>
+                <%= cl_image_tag bookclub.photo.key, height: 140, width: 140, class: "rounded-circle  shadow mb-3" %>
+              <% end %>
+              <div class="container justify-content-between">
+                <div class="text-start mx-4 ">
+                  <h5><strong><%= bookclub.name %></strong></h5>
+                </div>
+                <p class="desc-bookclubs"> <%= bookclub.description %> </p>
               </div>
-              <p class="mx-4"> <%= bookclub.description %> </p>
-            </div>
-            <div class="button m-5">
-              <%= link_to "Learn more", bookclub_path(bookclub), class: "button" %>
+              <div class="button m-5">
+                <%= link_to "Learn more", bookclub_path(bookclub), class: "button" %>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
