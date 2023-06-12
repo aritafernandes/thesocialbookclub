@@ -11,13 +11,13 @@
                             class: "form-control rounded-pill",
                             placeholder: "Search by Title or Author",
                             value: params[:query],
+                            autocomplete: :off,
                             data: {search_books_target: "input",
                             action: "keyup->search-books#update"}
-                            %>
+          %>
         <% end %>
       </div>
     </div>
-
     <div class="container mt-5">
       <div class="row">
         <div class="col-8 mx-auto">
