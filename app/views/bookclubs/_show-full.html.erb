@@ -4,13 +4,13 @@
       <div class="p-3">
         <%= cl_image_tag @bookclub.photo.key, height: 140, width: 140, class: "rounded-circle  shadow" %>
       </div>
+      <% if @bookclub.bookclub_members.find_by(user: current_user).present? %>
+        <% if @bookclub.bookclub_members.find_by(user: current_user).admin? %>
+          <i class="crown-show fa-solid fa-crown" style="color: #ffd700;"></i>
+        <% end %>
+      <% end %>
       <div class="d-flex flex-column ms-5">
         <div class="mt-3">
-      <div class="text-end">
-        <% if @bookclub.bookclub_members.find_by(user: current_user)&.admin? %>
-          <p class="text-end">Host</p>
-        <% end %>
-      </div>
           <h5><strong><%= @bookclub.name %></strong></h5>
           <p class="num-members"><%= @bookclub.bookclub_members.size %> members</p>
         </div>
