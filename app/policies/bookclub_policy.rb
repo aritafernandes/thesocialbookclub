@@ -21,4 +21,9 @@ class BookclubPolicy < ApplicationPolicy
   def join?
     true
   end
+
+  def my_bookclubs?
+    true
+  end
+  
 end

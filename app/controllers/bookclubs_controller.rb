@@ -3,7 +3,7 @@ class BookclubsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @bookclubs = policy_scope(Bookclub.all)
+    @bookclubs = policy_scope(Bookclub.all.reverse_order)
   end
 
   def show
@@ -35,13 +35,20 @@ class BookclubsController < ApplicationController
 
   def join
     authorize @bookclub
-    BookclubMember.find_or_create_by(user: current_user, bookclub: @bookclub, admin: false)
+    BookclubMember.find_or_create_by(user: current_user, bookclub: @bookclub)
     redirect_to bookclub_path(@bookclub)
   end
 
   def destroy
     @bookclub.destroy
     redirect_to bookclubs_path, status: :see_other
+  end
+
+  def my_bookclubs
+    #joining bookclub_members table to bookclubs table
+    #filtering by bookclub_member/current_user
+    @my_bookclubs = Bookclub.joins(:bookclub_members).where(bookclub_members: { user: current_user })
+    authorize @my_bookclubs
   end
 
   private

@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('assets/banner_home.png');">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(<%= asset_url "banner_home" %>);">
   <div class="container">
     <div class="d-flex flex-direction-column justify-content-between">
       <div class="white">
@@ -19,42 +19,74 @@
   </div>
 </div>
 <div class="container mt-5">
-   <div class="cards-home">
-      <div class="row">
-        <% @bookclubs.each do |bookclub| %>
-          <div class="col cards mt-1 shadow p-4 m-4">
-            <div class="h-100">
-              <div class="content">
-                <% if bookclub.photo.attached?%>
-                <%= cl_image_tag bookclub.photo.key, height: 100, class: "rounded-circle  shadow mb-3" %>
-                <% end %>
-                <h5>
-                <%= bookclub.name %></h1>
-                <div class="content-text mt-2">
-                   <p><% if bookclub.description.chars.count > 300 %>
-                      <%= bookclub.description.first(300) + "..." %>
-                   </p>
-                   <% else %>
-                   <p class="p-1"><%= bookclub.description %></p>
-                   <% end %>
+  <div class="cards-home">
+    <div class="d-flex justify-content-center m-3">
+      <h4>Join a Book Club</h4>
+    </div>
+    <div class="row">
+      <% @bookclubs.each do |bookclub| %>
+        <div class="col cards mt-1 shadow p-4 m-4">
+          <div class="h-100">
+            <div class="content">
+              <div class="row">
+                <div class="col-6 text-center">
+                  <% if bookclub.photo.attached? %>
+                    <%= cl_image_tag bookclub.photo.key, height: 140, width: 140, class: "rounded-circle shadow mb-3" %>
+                  <% end %>
                 </div>
-                <% if bookclub.books.present? %>
-                  <p>Currently Reading</p>
-                  <p class="shadow"><%=image_tag bookclub.books.last.image_link %></p>
-                  <% else %>
-                  <p><strong>There's no meeting yet.</strong></p>
+                <div class="col-6 text-end">
+                  <% if bookclub.bookclub_members.find_by(user: current_user)&.admin? %>
+                    <p class="text-end">Host</p>
+                  <% end %>
+                </div>
+              </div>
+              <div class="content-text mt-2">
+                <h5><%= bookclub.name %></h5>
+                <% if bookclub.description.chars.count > 300 %>
+                  <p>
+                    <%= bookclub.description.first(300) + "..." %>
+                  </p>
+                <% else %>
+                  <p class="p-1"><%= bookclub.description %></p>
                 <% end %>
-                <div class="d-flex flex-column justify-content-around mt-3">
+              </div>
+              <% if bookclub.books.present? %>
+                <p>Currently Reading</p>
+                <p class="shadow"><%=image_tag bookclub.books.last.image_link %></p>
+              <% else %>
+                <p><strong>There's no meeting yet.</strong></p>
+              <% end %>
+              <div class="d-flex flex-column justify-content-around mt-3">
+                <% if bookclub.bookclub_members.where(user: current_user).empty? %>
                   <%= link_to "Join", join_bookclub_path(bookclub), class: "button" %>
+                <% else %>
                   <%= link_to "Learn More", bookclub_path(bookclub), class: "learn-btn pt-3 text-decoration-none" %>
-                </div>
+                <% end %>
               </div>
             </div>
           </div>
-        <% end %>
-      </div>
-      <div class="d-flex justify-content-center p-5">
-         <%= link_to "Browse all", bookclubs_path, class: "button-secondary" %>
-      </div>
-   </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="d-flex justify-content-center p-5">
+      <%= link_to "Browse all", bookclubs_path, class: "button-secondary" %>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <h4>Recommendations</h4>
+  </div>
+  <div class="d-flex justify-content-center">
+    <p class="text-center">June's Must-Reads: Dive into Enchanting Stories. Click for Literary Bliss!</p>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-auto col-sm-6 col-12 mb-4 text-center">
+      <% @meetings.each do |meeting| %>
+        <a href="<%= book_path(meeting.book.id) %>" class="p-2">
+          <%= image_tag(meeting.book.image_link, style: "width: 150px; height: auto;", class: "zoom-effect") %>
+        </a>
+      <% end %>
+    </div>
+  </div>
 </div>
