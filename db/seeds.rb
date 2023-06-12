@@ -75,12 +75,16 @@ authors.each do |author|
 
   next if book["volumeInfo"]["imageLinks"].nil?
 
+  identifiers = book.dig('volumeInfo', 'industryIdentifiers')
+  next if identifiers.blank?
+
   title = book["volumeInfo"]["title"]
   author = book["volumeInfo"]["authors"][0]
   description = book["volumeInfo"]["description"]
   image = book["volumeInfo"]["imageLinks"]["thumbnail"]
   year = book["volumeInfo"]["publishedDate"].first(4)
-  Book.create!(title: title, author: author, description: description, image_link:image, year: year)
+  identifier = identifiers.first["identifier"]
+  Book.create!(title:, author:, description:, image_link: image, year:, identifier:)
 
   puts "Created book"
   puts "---------------------------"
