@@ -84,7 +84,6 @@ authors.each do |author|
 
   puts "Created book"
   puts "---------------------------"
-
   end
 end
 
@@ -99,12 +98,11 @@ bookclub1.save!
 puts "Created bookclub 1"
 puts "---------------------------"
 
-
 puts "Creating bookclub 2"
 puts "---------------------------"
 
 file = URI.open("https://res.cloudinary.com/dhvsyhahj/image/upload/v1686505671/bookclub_lgbtq_zoh56m.jpg")
-bookclub2 = Bookclub.new(name: "The Literary Mosaic Club: ", description: "Piece by piece, we build a beautiful literary mosaic. We read works by authors from different ethnicities, LGBTQ+ communities, and abilities, celebrating the rich tapestry of humanity.")
+bookclub2 = Bookclub.new(name: "The Literary Mosaic Club", description: "Piece by piece, we build a beautiful literary mosaic. We read works by authors from different ethnicities, LGBTQ+ communities, and abilities, celebrating the rich tapestry of humanity.")
 bookclub2.photo.attach(io: file, filename: "#{bookclub2.name}.jpg", content_type: "image/jpg")
 bookclub2.save!
 
@@ -121,7 +119,6 @@ bookclub3.save!
 
 puts "Created bookclub 3"
 puts "---------------------------"
-
 
 puts "Creating bookclub 4"
 puts "---------------------------"
@@ -156,7 +153,6 @@ bookclub6.save!
 puts "Created bookclub 6"
 puts "---------------------------"
 
-
 puts "Creating bookclub 7"
 puts "---------------------------"
 
@@ -167,7 +163,6 @@ bookclub7.save!
 
 puts "Created bookclub 7"
 puts "---------------------------"
-
 
 puts "Creating bookclub 8"
 puts "---------------------------"
@@ -232,7 +227,6 @@ bookclubmember3 = BookclubMember.create(user: user3, bookclub: bookclub1)
 puts "Created bookclub members for club 1"
 puts "---------------------------"
 
-
 puts "Create bookclub members for club 2"
 puts "---------------------------"
 
@@ -262,7 +256,6 @@ bookclubmember3 = BookclubMember.create(user: user3, bookclub: bookclub4)
 
 puts "Created bookclub members club 4"
 puts "---------------------------"
-
 
 puts "Create bookclub members for club 5"
 puts "---------------------------"
@@ -304,7 +297,6 @@ user3.save!
 puts "Created user 3 photo"
 puts "---------------------------"
 
-
 puts "Create meeting"
 puts "---------------------------"
 
@@ -313,7 +305,6 @@ meeting2 = Meeting.create(bookclub: bookclub2, book: Book.all.sample, location: 
 meeting3 = Meeting.create(bookclub: bookclub3, book: Book.all.sample, location: "Avenida Padre Manuel da Nóbrega, 9, 1000-223, Areeiro", date_time: DateTime.new(2023,8,10,6,0,0) )
 meeting4 = Meeting.create(bookclub: bookclub4, book: Book.all.sample, location: "Rua Sousa Viterbo, 32, 1900-427, Penha de França", date_time: DateTime.new(2023,8,10,6,0,0) )
 meeting5 = Meeting.create(bookclub: bookclub5, book: Book.all.sample, location: "Avenida das Tílias, 5, 2635-546, Rio de Mouro", date_time: DateTime.new(2023,8,10,6,0,0) )
-
 
 puts "Created meeting"
 puts "---------------------------"
