@@ -3,7 +3,17 @@ class BookclubsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @bookclubs = policy_scope(Bookclub.all.reverse_order)
+    @bookclubs = policy_scope(Bookclub)
+
+    if params[:query].present?
+      sql_subquery = "name ILIKE :query OR genre ILIKE :query"
+      @bookclubs = @bookclubs.where(sql_subquery, query: "%#{params[:query]}%")
+    end
+
+    respond_to do |format|
+      format.html
+      format.text { render partial: "bookclubs/list", locals: { books: @bookclubs }, formats: [:html] }
+    end
   end
 
   def show

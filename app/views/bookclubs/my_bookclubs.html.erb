@@ -5,7 +5,7 @@
   <div class="container">
     <div class="row d-flex justify-content-center mb-4">
       <% @my_bookclubs.each do |my_bookclub| %>
-        <div class="cards col-12 border-2 rounded-3 my-3 shadow p-4 alig-items-center">
+        <div class="cards col-10 border-2 rounded-3 my-3 shadow p-4 alig-items-center">
           <div class="text-end">
             <% if my_bookclub.bookclub_members.find_by(user: current_user).admin? %>
               <p class="text-end">Host</p>
