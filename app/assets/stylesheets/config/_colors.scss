@@ -1,18 +1,22 @@
 // Define variables for your color scheme
 
-h1,h2,h3,h4,h5{
-  color:#272A34
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #272a34 !important;
 }
 
-p{
-  color: #868483
+p {
+  color: #868483;
 }
 
 // For example:
-$red: #FD1015;
-$blue: #0D6EFD;
-$yellow: #FFC65A;
-$orange: #E67E22;
-$green: #1EDD88;
-$gray: #0E0000;
-$light-gray: #F4F4F4;
+$red: #fd1015;
+$blue: #0d6efd;
+$yellow: #ffc65a;
+$orange: #e67e22;
+$green: #1edd88;
+$gray: #888888;
+$light-gray: #f4f4f4;
