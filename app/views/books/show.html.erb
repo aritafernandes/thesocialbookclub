@@ -9,11 +9,8 @@
           <%= image_tag @book.image_link, height: 200, class: "shadow mb-3" %>
           <div class="justify-content-end mt-3">
             <p> Buy the Book:</p>
-            <%= link_to "http://www.amazon.com", method: :post do %>
+            <%= link_to "https://www.amazon.co.uk/s?k=#{book.identifier}", method: :post do %>
               <i class="fa-brands fa-amazon fa-xl  ms-3" style="color: #272a34;"></i>
-            <% end %>
-            <%= link_to "https://www.apple.com/apple-books/", method: :post do %>
-              <i class="fa-brands fa-apple fa-xl  ms-3" style="color: #272a34;"></i>
             <% end %>
           </div>
         </div>
