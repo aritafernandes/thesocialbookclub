@@ -7,10 +7,12 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
-
 .join-link {
   color: #E36166
+}
+
+.logo {
+  height: 40px;
+  object-fit: cover;
+  object-position: center;
 }
