@@ -1,3 +1,7 @@
+<% content_for :meta_title, @bookclub.name %>
+<% content_for :meta_description, @bookclub.description %>
+<% content_for :meta_image, cl_image_path(@bookclub.photo.key) if @bookclub.photo.attached? %>
+
 <% if @is_bookclub_member %>
   <%= render "show-full" %>
 <% else %>
