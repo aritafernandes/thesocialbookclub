@@ -21,6 +21,7 @@ class BookclubsController < ApplicationController
     @current_meeting = @bookclub.meetings.last
     @book = @current_meeting.book if @bookclub.meetings.present?
     @is_bookclub_member = @bookclub.bookclub_members.where(user: current_user).present? || @bookclub.bookclub_members.where(user:current_user, admin:true).present?
+    # search for meeting guest to display status on button (show_full_view)
     @meeting_guest = MeetingGuest.find_by(meeting_id: @current_meeting.id, user_id: @current_user.id)
   end
 

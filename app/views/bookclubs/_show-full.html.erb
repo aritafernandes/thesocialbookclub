@@ -94,15 +94,18 @@
                     </div>
                   </div>
                   <div class="d-flex">
+                    <%# calls @meetin_guest from bookclubs_controller %>
                     <% if @meeting_guest.nil? %>
                       <div class="d-flex">
                         <%= link_to "yes", meeting_accept_path(@current_meeting), data: {turbo_method: :post}, class: "button-meet mx-2" %>
                         <%= link_to "no", meeting_decline_path(@current_meeting), data: {turbo_method: :post}, class: "button-meet" %>
                       </div>
+                      <%# calls @meetin_guest from bookclubs_controller %>
                     <% elsif @meeting_guest.declined? %>
                       <div class="d-flex">
                         <div class="button-meet mx-3">declined</div>
                       </div>
+                      <%# calls @meetin_guest from bookclubs_controller %>
                     <% else @meeting_guest.accepted? %>
                       <div class="d-flex">
                         <div class="button-meet mx-3">accepted</div>
