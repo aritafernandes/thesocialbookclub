@@ -43,7 +43,6 @@ authors = [
   "rachel+carlson",
   "conceicao+evaristo",
   "jk+rowling",
-  "james+baldwin",
   "samantha+irby",
   "ayad+akhtar",
   "eca+queiroz",
@@ -55,7 +54,6 @@ authors = [
   "bruno+vieira+amaral",
   "leila+slimani",
   "george+r+r+martin",
-  "edouard+louis",
   "chimamanda+ngozi+adichie",
   "bernardine+evaristo",
   "kate+atkinson",
@@ -73,7 +71,16 @@ authors = [
   "Yaa+Gyasi",
   "Jesmyn+Ward",
   "Tommy+Orange",
-  "Tayari+Jones"
+  "Tayari+Jones",
+  "hanya+yanagihara",
+  "louise+erdrich",
+  "ngugi+wa+thiong'o",
+  "robin+coste+lewis",
+  "amor+towles",
+  "emily+st+john+mandel",
+  "don+delillo",
+  "susan+orlean",
+  "helen+macdonald"
 ]
 
 authors.each do |author|
