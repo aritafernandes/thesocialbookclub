@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_12_095743) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_13_102927) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -91,6 +91,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_095743) do
     t.datetime "updated_at", null: false
     t.bigint "book_id", null: false
     t.integer "status"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["book_id"], name: "index_meetings_on_book_id"
     t.index ["bookclub_id"], name: "index_meetings_on_bookclub_id"
   end
