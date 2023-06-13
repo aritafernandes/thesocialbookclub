@@ -21,17 +21,19 @@ class MeetingsController < ApplicationController
   end
 
   def accept
-    @meeting = Meeting.find(params[:meeting_id])
-    authorize @meeting
-    @meeting.accepted!
-    redirect_to bookclub_path(@meeting.bookclub), status: :see_other
+    # create meeting guest and change status to "accept"
+    @meeting_guest = MeetingGuest.create(meeting_id:params[:meeting_id], user_id: current_user.id)
+    authorize @meeting_guest.meeting
+    @meeting_guest.accepted!
+    redirect_to bookclub_path(@meeting_guest.meeting.bookclub), status: :see_other
   end
 
   def decline
-    @meeting = Meeting.find(params[:meeting_id])
-    authorize @meeting
-    @meeting.declined!
-    redirect_to bookclub_path(@meeting.bookclub), status: :see_other
+    # create meeting guest and change status to "decline"
+    @meeting_guest = MeetingGuest.create(meeting_id:params[:meeting_id], user_id: current_user.id)
+    authorize @meeting_guest.meeting
+    @meeting_guest.declined!
+    redirect_to bookclub_path(@meeting_guest.meeting.bookclub), status: :see_other
   end
 
   def show
