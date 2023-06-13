@@ -115,7 +115,7 @@
             <div class="tab-pane fade" id="pills-Books-weve-read" role="tabpanel" aria-labelledby="pills-Books-weve-read-tab">
               <div class="row justify-content-center">
                 <div class="col-md-auto col-sm-6 col-12 my-4 text-center">
-                  <% @bookclub.meetings.each do |meeting| %>
+                  <% @bookclub.meetings[0..-2].each do |meeting| %>
                     <a href="<%= book_path(meeting.book.id) %>" class="p-2">
                       <%= image_tag(meeting.book.image_link, style: "width: 100px; height: auto; box-shadow: 0px 0px 5px grey;", class: "zoom-effect") %>
                     </a>
