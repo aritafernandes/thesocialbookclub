@@ -1,0 +1,23 @@
+.pagy-bootstrap-nav {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination {
+  --bs-pagination-bg:#F1EEE3;
+}
+
+.page-link {
+  color: rgba(0,0,0,0.3);
+}
+
+.page-link:hover {
+  color: #E36166;
+}
+
+.active > .page-link {
+  background-color:  #F1EEE3;
+  border-color:#E36166;
+  color:  rgba(0,0,0,0.3);
+}
+
