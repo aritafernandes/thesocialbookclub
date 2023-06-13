@@ -35,63 +35,93 @@
       <div>
         <% if @book.present? %>
           <div class="cards col-8 d-flex mx-auto p-4 mt-5">
-            <div class="ps-3 pt-3">
-              <%= image_tag @book.image_link, height: 200, class: "shadow mb-3" %>
-            </div>
             <div class="d-flex flex-column">
-              <div class="d-flex flex-column">
-                <div class="ms-5 mt-3">
-                  <%= @book.title %>
-                </div>
-                <div class="ms-5 mt-1">
-                  <%= @book.author %>
-                </div>
-                <div class="ms-5 mt-1">
-                  <%= @book.year %>
-                </div>
+              <div class="d-flex flex-column text-center mt-2 mb-4">
+                <h2>Currently Reading</h2>
               </div>
-              <div class="mx-5 mt-5 mb-3">
-                <%= @book.description %>
-              </div>
+              <div class="d-flex ps-3 pt-3">
+                <%= image_tag @book.image_link, height: 200, class: "shadow mb-3" %>
+                <div class="d-flex flex-column">
+                  <div class="ms-5 mt-2">
+                    <h4><%= @book.title %></h4>
+                  </div>
+                  <div class="ms-5">
+                    <%= @book.author %>
+                  </div>
+                  <div class="ms-5 mt-1">
+                    <%= @book.year %>
+                  </div>
+                  <div class="mx-5 mt-5 mb-3">
+                    <%= @book.description %>
+                  </div>
+                </div>
+              </div >
             </div>
           </div>
         <% end %>
-        <div class="cards col-8 d-flex flex-column mx-auto p-4 my-5 mx-3">
-          <div class="d-flex justify-content-between">
-            <% if policy(Meeting.new(bookclub: @bookclub)).new? %>
-              <p><strong>Meeting details</strong></p>
-              <%= link_to "New meeting", new_bookclub_meeting_path(@bookclub), class: "button" %>
-            <% end %>
-          </div>
-          <div class="d-flex mt-4 mb-4 justify-content-between align-items-center">
-            <div>
-              <% if @current_meeting.present? %>
+        <div class="d-flex justify-content-center mt-5 mb-4">
+          <% if policy(Meeting.new(bookclub: @bookclub)).new? %>
+            <%= link_to "New meeting", new_bookclub_meeting_path(@bookclub), class: "button" %>
+          <% end %>
+        </div>
+        <div class="d-flex mx-auto col-8 ps-2">
+          <ul class="nav nav-pills" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="pills-next-meeting-tab" data-bs-toggle="pill" data-bs-target="#pills-next-meeting" type="button" role="tab" aria-controls="pills-next-meeting" aria-selected="true">Next Meeting</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-Books-weve-read-tab" data-bs-toggle="pill" data-bs-target="#pills-Books-weve-read" type="button" role="tab" aria-controls="pills-Books-weve-read" aria-selected="false">Books we've read</button>
+            </li>
+          </ul>
+        </div>
+        <div class="cards-tab col-8 d-flex flex-column mx-auto p-4 mb-5 mx-3">
+          <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-next-meeting" role="tabpanel" aria-labelledby="pills-next-meeting-tab">
+              <div class="d-flex justify-content-between">
+                <p><strong>Next meeting details:</strong></p>
+              </div>
+              <div class="d-flex mt-4 mb-4 justify-content-between align-items-center">
                 <div>
-                  <%= @current_meeting.location %>
-                </div>
-                <div>
-                  <%= @current_meeting.video_link %>
-                </div>
-                <div>
-                  <%= @current_meeting.date_time %>
+                  <% if @current_meeting.present? %>
+                    <div>
+                      <%= @current_meeting.location %>
+                    </div>
+                    <div>
+                      <%= @current_meeting.video_link %>
+                    </div>
+                    <div>
+                      <%= @current_meeting.date_time %>
+                    </div>
+                  </div>
+                  <div class="d-flex">
+                    <% if @current_meeting.pending? %>
+                      <div class="d-flex">
+                        <%= link_to "yes", meeting_accept_path(@current_meeting), data: {turbo_method: :post}, class: "button-meet mx-2" %>
+                        <%= link_to "no", meeting_decline_path(@current_meeting), data: {turbo_method: :post}, class: "button-meet" %>
+                      </div>
+                    <% elsif @current_meeting.declined? %>
+                      <div class="d-flex">
+                        <div class="button-meet mx-3">declined</div>
+                      </div>
+                    <% else @current_meeting.accepted? %>
+                      <div class="d-flex">
+                        <div class="button-meet mx-3">accepted</div>
+                      </div>
+                    <% end %>
+                  <% end %>
                 </div>
               </div>
-              <div class="d-flex">
-                <% if @current_meeting.pending? %>
-                  <div class="d-flex">
-                    <%= link_to "yes", meeting_accept_path(@current_meeting), data: {turbo_method: :post}, class: "button-meet mx-2" %>
-                    <%= link_to "no", meeting_decline_path(@current_meeting), data: {turbo_method: :post}, class: "button-meet" %>
-                  </div>
-                <% elsif @current_meeting.declined? %>
-                  <div class="d-flex">
-                    <div class="button-meet mx-3">declined</div>
-                  </div>
-                <% else @current_meeting.accepted? %>
-                  <div class="d-flex">
-                    <div class="button-meet mx-3">accepted</div>
-                  </div>
-                <% end %>
-              <% end %>
+            </div>
+            <div class="tab-pane fade" id="pills-Books-weve-read" role="tabpanel" aria-labelledby="pills-Books-weve-read-tab">
+              <div class="row justify-content-center">
+                <div class="col-md-auto col-sm-6 col-12 my-4 text-center">
+                  <% @bookclub.meetings.each do |meeting| %>
+                    <a href="<%= book_path(meeting.book.id) %>" class="p-2">
+                      <%= image_tag(meeting.book.image_link, style: "width: 100px; height: auto; box-shadow: 0px 0px 5px grey;", class: "zoom-effect") %>
+                    </a>
+                  <% end %>
+                </div>
+              </div>
             </div>
           </div>
         </div>
