@@ -10,9 +10,9 @@
 }
 
 .content-text {
-  height: 45vh;
+  height: 210px;
   text-overflow: ellipsis;
-  overflow: hidden;
+  overflow: scroll;
   display: -webkit-box;
   -webkit-line-clamp: 8;
   -webkit-box-orient: vertical;
