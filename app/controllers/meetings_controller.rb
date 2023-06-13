@@ -6,6 +6,8 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.new(bookclub: @bookclub)
     authorize @meeting
     @meeting.bookclub = @bookclub
+
+    
   end
 
   def create

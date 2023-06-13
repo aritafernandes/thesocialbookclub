@@ -8,6 +8,10 @@
 @import "font-awesome";
 // @import "tom-select/dist/css/tom-select.bootstrap5.min.css";
 
+@import "tom-select/dist/css/tom-select.css";
+@import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
+
+
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
