@@ -11,6 +11,8 @@ class BooksController < ApplicationController
       @books = @books.where(sql_subquery, query: "%#{query}%")
     end
 
+    @pagy, @books = pagy(@books, items: 20)
+
     respond_to do |format|
       format.html
       format.text { render partial: "books/list", locals: { books: @books }, formats: [:html] }

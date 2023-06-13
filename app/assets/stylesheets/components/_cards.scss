@@ -24,6 +24,21 @@
   text-align: left;
 }
 
+.cards-tab {
+  background-color: #E5E3D6;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.tab {
+  margin-left: 210px;
+}
+
+.tab-text {
+  color: #888888;
+  text-decoration: none;
+}
+
 .even-color {
   background-color: #FDFBF7;
 }
@@ -46,15 +61,15 @@
 
 .crown-clubs {
   position: absolute;
-  top: 20px;
-  right: 40px;
+  top: 28px;
+  left: 145px;
   text-shadow: 1px 1px 2px grey;
 }
 
 .crown-show {
-  position: relative;
-  bottom: 12px;
-  left: 530px;
+  position: absolute;
+  top: 34px;
+  left: 150px;
   text-shadow: 1px 1px 2px grey;
 }
 

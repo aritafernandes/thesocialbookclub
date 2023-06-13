@@ -36,7 +36,7 @@
                 </div>
                 <% if bookclub.bookclub_members.find_by(user: current_user).present? %>
                   <% if bookclub.bookclub_members.find_by(user: current_user).admin? %>
-                    <i class="crown-home fa-solid fa-crown" style="color: #ffd700;"></i>
+                    <i class="crown-home fa-solid fa-crown fa-lg" style="color: #ffd700;"></i>
                   <% end %>
                 <% end %>
               </div>
