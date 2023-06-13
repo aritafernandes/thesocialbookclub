@@ -6,8 +6,6 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.new(bookclub: @bookclub)
     authorize @meeting
     @meeting.bookclub = @bookclub
-
-    
   end
 
   def create
@@ -46,5 +44,4 @@ class MeetingsController < ApplicationController
   def meeting_params
     params.require(:meeting).permit(:book_id, :date_time, :video_link, :location)
   end
-
 end
