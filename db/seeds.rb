@@ -41,7 +41,6 @@ authors = [
   "david+sedaris",
   "joan+didion",
   "rachel+carlson",
-  "isabel+figueiredo",
   "conceicao+evaristo",
   "jk+rowling",
   "james+baldwin",
@@ -58,7 +57,23 @@ authors = [
   "george+r+r+martin",
   "edouard+louis",
   "chimamanda+ngozi+adichie",
-  "bernardine+evaristo"
+  "bernardine+evaristo",
+  "kate+atkinson",
+  "zadie+smith",
+  "haruki+murakami",
+  "margaret+atwood",
+  "arundhati+roy",
+  "marlon+james",
+  "han+kang",
+  "anna+burns",
+  "colson+whitehead",
+  "clarice+lispector",
+  "machado+de+assis",
+  "jorge+amado",
+  "Yaa+Gyasi",
+  "Jesmyn+Ward",
+  "Tommy+Orange",
+  "Tayari+Jones"
 ]
 
 authors.each do |author|
