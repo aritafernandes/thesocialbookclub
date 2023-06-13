@@ -9,7 +9,12 @@
 require "json"
 require "open-uri"
 
-puts "Destroying all meetings"
+puts "Destroying all meetings guests"
+puts "---------------------------"
+MeetingGuest.destroy_all
+puts "Destroyed all meetings"
+
+puts "Destroying all meetings guests"
 puts "---------------------------"
 Meeting.destroy_all
 puts "Destroyed all meetings"
