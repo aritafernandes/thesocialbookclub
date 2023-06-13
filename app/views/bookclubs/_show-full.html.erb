@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="cards col-8 d-flex flex-row mx-auto p-4 mt-5">
+    <div class="cards col-8 d-flex flex-row mx-auto p-4 mt-5 position-relative">
       <div class="p-3">
         <%= cl_image_tag @bookclub.photo.key, height: 140, width: 140, class: "rounded-circle  shadow" %>
       </div>
       <% if @bookclub.bookclub_members.find_by(user: current_user).present? %>
         <% if @bookclub.bookclub_members.find_by(user: current_user).admin? %>
-          <i class="crown-show fa-solid fa-crown" style="color: #ffd700;"></i>
+          <i class="crown-show fa-solid fa-crown fa-lg" style="color: #ffd700;"></i>
         <% end %>
       <% end %>
       <div class="d-flex flex-column ms-5">
