@@ -69,7 +69,6 @@ authors = [
   "han+kang",
   "anna+burns",
   "colson+whitehead",
-  "machado+de+assis",
   "jorge+amado",
   "Yaa+Gyasi",
   "Jesmyn+Ward",
