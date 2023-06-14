@@ -51,12 +51,12 @@
                   <% end %>
                 </div>
                 <% if bookclub.books.present? %>
-                  <p class="text-center mt-4">Currently Reading</p>
+                  <p class="text-center mt-4"><strong>Currently Reading</strong></p>
                   <div class="w-50 mx-auto mb-3">
                     <%=image_tag bookclub.books.last.image_link %>
                   </div>
                 <% else %>
-                  <p class="text-center mt-4">Currently not reading a book.</p>
+                  <p class="text-center mt-4"><strong>Currently not reading a book.</strong></p>
                   <div>
                     <%= image_tag "empty-shelf.png", class: "shelf-home mb-3 d-block mx-auto" %>
                   </div>
