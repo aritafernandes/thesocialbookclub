@@ -176,8 +176,8 @@ puts "---------------------------"
 puts "Creating bookclub 6"
 puts "---------------------------"
 
-file = URI.open("https://res.cloudinary.com/dhvsyhahj/image/upload/v1686505672/bookclub_lisbon_fbizlr.jpg")
-bookclub6 = Bookclub.new(name: "The Lisboa Book Club", description: " Let's dive into literature while sipping on a cup of Portuguese coffee. Join us as we discuss books set in Lisbon, delve into Portuguese literature, and celebrate the charm of the city.")
+file = URI.open("https://res.cloudinary.com/dhvsyhahj/image/upload/v1686505671/bookclub_david_sedaris_z7dgct.jpg")
+bookclub6 = Bookclub.new(name: "The Sedaris Saloon", description: "Happiness is not something ready-made. It comes from your own actions... and from a good book.")
 bookclub6.photo.attach(io: file, filename: "#{bookclub6.name}.jpg", content_type: "image/jpg")
 bookclub6.save!
 
@@ -187,13 +187,14 @@ puts "---------------------------"
 puts "Creating bookclub 7"
 puts "---------------------------"
 
-file = URI.open("https://res.cloudinary.com/dhvsyhahj/image/upload/v1686505671/bookclub_david_sedaris_z7dgct.jpg")
-bookclub7 = Bookclub.new(name: "The Sedaris Saloon", description: "Happiness is not something ready-made. It comes from your own actions... and from a good book.")
+file = URI.open("https://res.cloudinary.com/dhvsyhahj/image/upload/v1686505672/bookclub_lisbon_fbizlr.jpg")
+bookclub7 = Bookclub.new(name: "The Lisboa Book Club", description: " Let's dive into literature while sipping on a cup of Portuguese coffee. Join us as we discuss books set in Lisbon, delve into Portuguese literature, and celebrate the charm of the city.")
 bookclub7.photo.attach(io: file, filename: "#{bookclub7.name}.jpg", content_type: "image/jpg")
 bookclub7.save!
 
 puts "Created bookclub 7"
 puts "---------------------------"
+
 
 puts "Creating bookclub 8"
 puts "---------------------------"
@@ -251,7 +252,7 @@ puts "---------------------------"
 puts "Create bookclub members for club 1"
 puts "---------------------------"
 
-bookclubmember1 = BookclubMember.create(user: user1, bookclub: bookclub1, admin: true)
+# #bookclubmember1 = BookclubMember.create(user: user1, bookclub: bookclub1, admin: true)
 bookclubmember2 = BookclubMember.create(user: user2, bookclub: bookclub1)
 bookclubmember3 = BookclubMember.create(user: user3, bookclub: bookclub1)
 
@@ -261,7 +262,7 @@ puts "---------------------------"
 puts "Create bookclub members for club 2"
 puts "---------------------------"
 
-bookclubmember1 = BookclubMember.create(user: user1, bookclub: bookclub2)
+# bookclubmember1 = BookclubMember.create(user: user1, bookclub: bookclub2)
 # bookclubmember2 = BookclubMember.create(user: user2, bookclub: bookclub2, admin: true )
 bookclubmember3 = BookclubMember.create(user: user3, bookclub: bookclub2)
 
@@ -271,7 +272,7 @@ puts "---------------------------"
 puts "Create bookclub members for club 3"
 puts "---------------------------"
 
-bookclubmember1 = BookclubMember.create(user: user1, bookclub: bookclub3)
+# bookclubmember1 = BookclubMember.create(user: user1, bookclub: bookclub3)
 bookclubmember2 = BookclubMember.create(user: user2, bookclub: bookclub3, admin: true )
 bookclubmember3 = BookclubMember.create(user: user3, bookclub: bookclub3)
 
@@ -281,7 +282,7 @@ puts "---------------------------"
 puts "Create bookclub members for club 4"
 puts "---------------------------"
 
-bookclubmember1 = BookclubMember.create(user: user1, bookclub: bookclub4)
+# bookclubmember1 = BookclubMember.create(user: user1, bookclub: bookclub4)
 bookclubmember2 = BookclubMember.create(user: user2, bookclub: bookclub4, admin: true )
 bookclubmember3 = BookclubMember.create(user: user3, bookclub: bookclub4)
 
@@ -291,9 +292,17 @@ puts "---------------------------"
 puts "Create bookclub members for club 5"
 puts "---------------------------"
 
-bookclubmember1 = BookclubMember.create(user: user1, bookclub: bookclub5)
+# bookclubmember1 = BookclubMember.create(user: user1, bookclub: bookclub5)
 bookclubmember2 = BookclubMember.create(user: user2, bookclub: bookclub5, admin: true)
 bookclubmember3 = BookclubMember.create(user: user3, bookclub: bookclub5)
+
+puts "Created bookclub members club 5"
+puts "---------------------------"
+
+puts "Create bookclub members for club 6"
+puts "---------------------------"
+
+bookclubmember2 = BookclubMember.create(user: user2, bookclub: bookclub6, admin: true)
 
 puts "Created bookclub members club 5"
 puts "---------------------------"
