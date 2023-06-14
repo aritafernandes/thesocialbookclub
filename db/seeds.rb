@@ -252,7 +252,7 @@ puts "---------------------------"
 puts "Create bookclub members for club 1"
 puts "---------------------------"
 
-# #bookclubmember1 = BookclubMember.create(user: user1, bookclub: bookclub1, admin: true)
+# bookclubmember1 = BookclubMember.create(user: user1, bookclub: bookclub1, admin: true)
 bookclubmember2 = BookclubMember.create(user: user2, bookclub: bookclub1)
 bookclubmember3 = BookclubMember.create(user: user3, bookclub: bookclub1)
 
@@ -263,7 +263,7 @@ puts "Create bookclub members for club 2"
 puts "---------------------------"
 
 # bookclubmember1 = BookclubMember.create(user: user1, bookclub: bookclub2)
-# bookclubmember2 = BookclubMember.create(user: user2, bookclub: bookclub2, admin: true )
+bookclubmember2 = BookclubMember.create(user: user2, bookclub: bookclub2, admin: true )
 bookclubmember3 = BookclubMember.create(user: user3, bookclub: bookclub2)
 
 puts "Created bookclub members for club 2"
@@ -342,7 +342,7 @@ puts "---------------------------"
 
 meeting1 = Meeting.create(bookclub: bookclub1, book: Book.all.sample, location: "Rua do Conde de Redondo 91B, 1150-103, Lisboa", date_time: DateTime.new(2023,6,18,5,0,0) )
 meeting2 = Meeting.create(bookclub: bookclub2, book: Book.all.sample, location: "https://us06web.zoom.us/j/84145373454?pwd=WHNCNmdDM1lTdDJEcW03R004ZExpQT09", date_time: DateTime.new(2023,6,21,6,0,0) )
-meeting3 = Meeting.create(bookclub: bookclub3, book: Book.all.sample, location: "Avenida Padre Manuel da Nóbrega, 9, 1000-223, Areeiro", date_time: DateTime.new(2023,8,20,6,0,0) )
+# meeting3 = Meeting.create(bookclub: bookclub3, book: Book.all.sample, location: "Avenida Padre Manuel da Nóbrega, 9, 1000-223, Areeiro", date_time: DateTime.new(2023,8,20,6,0,0) )
 meeting4 = Meeting.create(bookclub: bookclub4, book: Book.all.sample, location: "Rua Sousa Viterbo, 32, 1900-427, Penha de França", date_time: DateTime.new(2023,8,24,6,0,0) )
 meeting5 = Meeting.create(bookclub: bookclub5, book: Book.all.sample, location: "Avenida das Tílias, 5, 2635-546, Rio de Mouro", date_time: DateTime.new(2023,8,29,6,0,0) )
 
