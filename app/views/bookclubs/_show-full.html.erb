@@ -78,7 +78,7 @@
           <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-next-meeting" role="tabpanel" aria-labelledby="pills-next-meeting-tab">
               <div class="d-flex justify-content-between">
-                <p><strong>Next meeting details:</strong></p>
+                <p><strong>Meeting details:</strong></p>
               </div>
               <div class="d-flex mt-4 mb-4 justify-content-between align-items-center">
                 <div>
@@ -102,33 +102,39 @@
                       </div>
                       <%# calls @meeting_guest from bookclubs_controller %>
                     <% elsif @meeting_guest.declined? %>
-                      <div class="d-flex">
+                      <div class="d-flex flex-column align-items-center">
                         <div class="button-meet mx-3">declined</div>
                       </div>
                       <%# calls @meeting_guest from bookclubs_controller %>
                     <% else @meeting_guest.accepted? %>
-                      <div class="d-flex">
+                      <div class="d-flex flex-column align-items-center">
                         <div class="button-meet mx-3">accepted</div>
                       </div>
-                    <% end %>
+                    </div>
                   <% end %>
-                </div>
+                <% end %>
               </div>
             </div>
-            <div class="tab-pane fade" id="pills-Books-weve-read" role="tabpanel" aria-labelledby="pills-Books-weve-read-tab">
-              <div class="row justify-content-center">
-                <div class="col-md-auto col-sm-6 col-12 my-4 text-center">
-                  <% @bookclub.meetings[0..-2].each do |meeting| %>
-                    <a href="<%= book_path(meeting.book.id) %>" class="p-2">
-                      <%= image_tag(meeting.book.image_link, style: "width: 100px; height: auto; box-shadow: 0px 0px 5px grey;", class: "zoom-effect") %>
-                    </a>
-                  <% end %>
-                </div>
+            <div class="mt-3">
+              <%# count and show accepted invites %>
+              <% accepted_count = MeetingGuest.where(meeting: @current_meeting, status: 'accepted').count %>
+              <p><%= accepted_count %> accepted</p>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="pills-Books-weve-read" role="tabpanel" aria-labelledby="pills-Books-weve-read-tab">
+            <div class="row justify-content-center">
+              <div class="col-md-auto col-sm-6 col-12 my-4 text-center">
+                <% @bookclub.meetings[0..-2].each do |meeting| %>
+                  <a href="<%= book_path(meeting.book.id) %>" class="p-2">
+                    <%= image_tag(meeting.book.image_link, style: "width: 100px; height: auto; box-shadow: 0px 0px 5px grey;", class: "zoom-effect") %>
+                  </a>
+                <% end %>
               </div>
             </div>
           </div>
         </div>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+</div>
 </div>
