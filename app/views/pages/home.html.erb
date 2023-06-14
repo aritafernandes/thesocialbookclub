@@ -51,12 +51,15 @@
                   <% end %>
                 </div>
                 <% if bookclub.books.present? %>
-                  <p class="text-center">Currently Reading</p>
+                  <p class="text-center mt-4">Currently Reading</p>
                   <div class="w-50 mx-auto mb-3">
                     <%=image_tag bookclub.books.last.image_link %>
                   </div>
                 <% else %>
-                  <p><strong>There's no meeting yet.</strong></p>
+                  <p class="text-center mt-4">Currently not reading a book.</p>
+                  <div>
+                    <%= image_tag "empty-shelf.png", class: "shelf-home mb-3 d-block mx-auto" %>
+                  </div>
                 <% end %>
                 <div class="d-flex flex-column justify-content-center mt-3">
                   <% if bookclub.bookclub_members.where(user: current_user).empty? %>
