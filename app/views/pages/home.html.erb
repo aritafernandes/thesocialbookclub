@@ -44,8 +44,8 @@
                 </div>
               </div>
               <div class="row">
+                <h5 class="mb-4 text-center"><%= bookclub.name %></h5>
                 <div class="content-text mt-2">
-                  <h5 class="mb-4 text-center"><%= bookclub.name %></h5>
                   <% if bookclub.description.chars.count > 300 %>
                     <p>
                       <%= bookclub.description.first(300) + "..." %>
