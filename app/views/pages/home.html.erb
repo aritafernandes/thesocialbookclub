@@ -30,7 +30,13 @@
               <div class="row position-relative">
                 <div class="col-12 justify-content-center">
                   <% if bookclub.photo.attached? %>
-                    <%= cl_image_tag bookclub.photo.key, height: 140, width: 140, class: "rounded-circle mb-4" %>
+                    <% if bookclub.bookclub_members.find_by(user: current_user).present? %>
+                      <% if bookclub.bookclub_members.find_by(user: current_user).admin? %>
+                        <%= cl_image_tag bookclub.photo.key, height: 140, width: 140, class: "image rounded-circle mb-4" %>
+                      <% else %>
+                        <%= cl_image_tag bookclub.photo.key, height: 140, width: 140, class: "rounded-circle mb-4" %>
+                      <% end %>
+                    <% end %>
                   <% end %>
                 </div>
                 <% if bookclub.bookclub_members.find_by(user: current_user).present? %>
