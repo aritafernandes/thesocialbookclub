@@ -30,20 +30,18 @@
               <div class="row position-relative">
                 <div class="col-12 justify-content-center">
                   <% if bookclub.photo.attached? %>
-                    <% if bookclub.bookclub_members.find_by(user: current_user).present? %>
-                      <% if bookclub.bookclub_members.find_by(user: current_user).admin? %>
+                    <% if current_user && bookclub.bookclub_members.find_by(user: current_user).present? %>
+                      <% if current_user && bookclub.bookclub_members.find_by(user: current_user).admin? %>
                         <%= cl_image_tag bookclub.photo.key, height: 140, width: 140, class: "image rounded-circle mb-4" %>
+                        <i class="crown-home fa-solid fa-crown fa-lg" style="color: #ffd700;"></i>
                       <% else %>
                         <%= cl_image_tag bookclub.photo.key, height: 140, width: 140, class: "rounded-circle mb-4" %>
                       <% end %>
+                    <% else %>
+                      <%= cl_image_tag bookclub.photo.key, height: 140, width: 140, class: "rounded-circle mb-4" %>
                     <% end %>
                   <% end %>
                 </div>
-                <% if bookclub.bookclub_members.find_by(user: current_user).present? %>
-                  <% if bookclub.bookclub_members.find_by(user: current_user).admin? %>
-                    <i class="crown-home fa-solid fa-crown fa-lg" style="color: #ffd700;"></i>
-                  <% end %>
-                <% end %>
               </div>
               <div class="row">
                 <div class="content-text mt-2">
