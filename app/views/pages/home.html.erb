@@ -27,8 +27,8 @@
         <div class="col cards mt-1 shadow p-4 m-4">
           <div class="h-100">
             <div class="content">
-              <div class="row position-relative">
-                <div class="col-12 justify-content-center">
+              <div class="row">
+                <div class="col-12 justify-content-center position-relative">
                   <% if bookclub.photo.attached? %>
                     <% if current_user && bookclub.bookclub_members.find_by(user: current_user).present? %>
                       <% if current_user && bookclub.bookclub_members.find_by(user: current_user).admin? %>
@@ -51,12 +51,12 @@
                       <%= bookclub.description.first(300) + "..." %>
                     </p>
                   <% else %>
-                    <p class="py-2 ps-3"><%= bookclub.description %></p>
+                    <p class="text-center"><%= bookclub.description %></p>
                   <% end %>
                 </div>
                 <% if bookclub.books.present? %>
                   <p class="text-center mt-4"><strong>Currently reading</strong></p>
-                  <div class="w-50 mx-auto mb-3">
+                  <div class="w-50 d-flex justify-content-center mx-auto mb-3">
                     <%=image_tag bookclub.books.last.image_link %>
                   </div>
                 <% else %>
