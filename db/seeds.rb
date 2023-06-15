@@ -86,7 +86,7 @@ authors = [
 
 authors.each do |author|
   url = "https://www.googleapis.com/books/v1/volumes?q=inauthor:#{author}"
-  books_serialized = URI.open(url).read
+  books_serialized = URI.open(url, "Accept-Language" => "en-US,en;q=0.9,pt-PT;q=0.8,pt;q=0.7").read
   books = JSON.parse(books_serialized)
 
   puts "Fetch API"
