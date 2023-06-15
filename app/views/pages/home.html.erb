@@ -10,7 +10,7 @@
             <p style="margin-bottom: 0">Connect Through Words, Virtually and In Person.</p>
           </div>
           <div class="mt-3">
-            <%= link_to "Start a Bookclub", new_bookclub_path, class: "button shadow" %>
+            <%= link_to "Start a Book Club", new_bookclub_path, class: "button shadow" %>
           </div>
         </div>
       </div>
@@ -55,7 +55,7 @@
                   <% end %>
                 </div>
                 <% if bookclub.books.present? %>
-                  <p class="text-center mt-4"><strong>Currently Reading</strong></p>
+                  <p class="text-center mt-4"><strong>Currently reading</strong></p>
                   <div class="w-50 mx-auto mb-3">
                     <%=image_tag bookclub.books.last.image_link %>
                   </div>

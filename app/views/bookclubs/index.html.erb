@@ -9,7 +9,7 @@
           <%= form_with url: bookclubs_path, method: :get, html: {class:"flex-grow-1 mb-4", data: {search_bookclubs_target: "form"}} do |f| %>
             <%= f.text_field  :query,
                               class: "form-control rounded-pill",
-                              placeholder: "Search by Club Name and Genre",
+                              placeholder: "Search by Club Name",
                               value: params[:query],
                               autocomplete: :off,
                               data: {search_bookclubs_target: "input",
