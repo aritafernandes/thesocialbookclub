@@ -140,7 +140,7 @@ puts "Creating bookclub 3"
 puts "---------------------------"
 
 file = URI.open("https://res.cloudinary.com/dhvsyhahj/image/upload/v1686505671/bookclub_david_sedaris_z7dgct.jpg")
-bookclub3 = Bookclub.new(name: "The Sedaris Saloon", description: "Every gathering has its moment. As an adult, I distract myself by trying to identify it, dreading the inevitable downsing that is sure to follow.")
+bookclub3 = Bookclub.new(name: "The Sedaris Saloon", description: "Every gathering has its moment. As an adult, I distract myself by trying to identify it, dreading the inevitable downswing that is sure to follow.")
 bookclub3.photo.attach(io: file, filename: "#{bookclub3.name}.jpg", content_type: "image/jpg")
 bookclub3.save!
 
