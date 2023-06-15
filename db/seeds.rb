@@ -139,8 +139,8 @@ puts "---------------------------"
 puts "Creating bookclub 3"
 puts "---------------------------"
 
-file = URI.open("https://res.cloudinary.com/dhvsyhahj/image/upload/v1686506690/bookclub_webdev_qtj9i9.jpg")
-bookclub3 = Bookclub.new(name: "Rails & Revelations Book Club", description: "Rails development and beyond! We dive into a diverse range of books—fiction, non-fiction, philosophy, or even poetry—that spark curiosity and ignite thought-provoking discussions among Rails developers.")
+file = URI.open("https://res.cloudinary.com/dhvsyhahj/image/upload/v1686505671/bookclub_david_sedaris_z7dgct.jpg")
+bookclub3 = Bookclub.new(name: "The Sedaris Saloon", description: "Every gathering has its moment. As an adult, I distract myself by trying to identify it, dreading the inevitable downsing that is sure to follow.")
 bookclub3.photo.attach(io: file, filename: "#{bookclub3.name}.jpg", content_type: "image/jpg")
 bookclub3.save!
 
@@ -172,8 +172,8 @@ puts "---------------------------"
 puts "Creating bookclub 6"
 puts "---------------------------"
 
-file = URI.open("https://res.cloudinary.com/dhvsyhahj/image/upload/v1686505671/bookclub_david_sedaris_z7dgct.jpg")
-bookclub6 = Bookclub.new(name: "The Sedaris Saloon", description: "Happiness is not something ready-made. It comes from your own actions... and from a good book.")
+file = URI.open("https://res.cloudinary.com/dhvsyhahj/image/upload/v1686506690/bookclub_webdev_qtj9i9.jpg")
+bookclub6 = Bookclub.new(name: "Rails & Revelations Book Club", description: "Rails development and beyond! We dive into a diverse range of books—fiction, non-fiction, philosophy, or even poetry—that spark curiosity and ignite thought-provoking discussions among Rails developers.")
 bookclub6.photo.attach(io: file, filename: "#{bookclub6.name}.jpg", content_type: "image/jpg")
 bookclub6.save!
 
@@ -190,7 +190,6 @@ bookclub7.save!
 
 puts "Created bookclub 7"
 puts "---------------------------"
-
 
 puts "Creating bookclub 8"
 puts "---------------------------"
@@ -259,7 +258,7 @@ puts "Create bookclub members for club 2"
 puts "---------------------------"
 
 # bookclubmember1 = BookclubMember.create(user: user1, bookclub: bookclub2)
-bookclubmember2 = BookclubMember.create(user: user2, bookclub: bookclub2, admin: true )
+ bookclubmember2 = BookclubMember.create(user: user2, bookclub: bookclub2)
 bookclubmember3 = BookclubMember.create(user: user3, bookclub: bookclub2)
 
 puts "Created bookclub members for club 2"
@@ -279,7 +278,7 @@ puts "Create bookclub members for club 4"
 puts "---------------------------"
 
 # bookclubmember1 = BookclubMember.create(user: user1, bookclub: bookclub4)
-bookclubmember2 = BookclubMember.create(user: user2, bookclub: bookclub4, admin: true )
+# bookclubmember2 = BookclubMember.create(user: user2, bookclub: bookclub4)
 bookclubmember3 = BookclubMember.create(user: user3, bookclub: bookclub4)
 
 puts "Created bookclub members club 4"
