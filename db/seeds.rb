@@ -136,11 +136,12 @@ bookclub2.save!
 puts "Created bookclub 2"
 puts "---------------------------"
 
+
 puts "Creating bookclub 3"
 puts "---------------------------"
 
-file = URI.open("https://res.cloudinary.com/dhvsyhahj/image/upload/v1686505671/bookclub_david_sedaris_z7dgct.jpg")
-bookclub3 = Bookclub.new(name: "The Sedaris Saloon", description: "Every gathering has its moment. As an adult, I distract myself by trying to identify it, dreading the inevitable downswing that is sure to follow.")
+file = URI.open("https://res.cloudinary.com/dhvsyhahj/image/upload/v1686506690/bookclub_webdev_qtj9i9.jpg")
+bookclub3 = Bookclub.new(name: "Rails & Revelations Book Club", description: "Rails development and beyond! We dive into a diverse range of books—fiction, non-fiction, philosophy, or even poetry—that spark curiosity and ignite thought-provoking discussions among Rails developers.")
 bookclub3.photo.attach(io: file, filename: "#{bookclub3.name}.jpg", content_type: "image/jpg")
 bookclub3.save!
 
@@ -169,11 +170,12 @@ bookclub5.save!
 puts "Created bookclub 5"
 puts "---------------------------"
 
+
 puts "Creating bookclub 6"
 puts "---------------------------"
 
-file = URI.open("https://res.cloudinary.com/dhvsyhahj/image/upload/v1686506690/bookclub_webdev_qtj9i9.jpg")
-bookclub6 = Bookclub.new(name: "Rails & Revelations Book Club", description: "Rails development and beyond! We dive into a diverse range of books—fiction, non-fiction, philosophy, or even poetry—that spark curiosity and ignite thought-provoking discussions among Rails developers.")
+file = URI.open("https://res.cloudinary.com/dhvsyhahj/image/upload/v1686505671/bookclub_david_sedaris_z7dgct.jpg")
+bookclub6 = Bookclub.new(name: "The Sedaris Saloon", description: "Every gathering has its moment. As an adult, I distract myself by trying to identify it, dreading the inevitable downswing that is sure to follow.")
 bookclub6.photo.attach(io: file, filename: "#{bookclub6.name}.jpg", content_type: "image/jpg")
 bookclub6.save!
 
